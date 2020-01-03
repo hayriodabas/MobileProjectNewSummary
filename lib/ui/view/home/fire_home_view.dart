@@ -304,7 +304,7 @@ class _FireHomeViewState extends State<FireHomeView> {
   int _id;
   Widget _projectCard(Projects project) {
     return Card(
-      color: Colors.blue,
+       color :  Color(0xff95A9C6),
       child: InkWell(
         onTap: () {
           Navigator.push(
@@ -485,7 +485,7 @@ class projectDetail extends StatelessWidget {
               height: 10,
             ),
             Card(
-              color: Colors.blue,
+              color: Color(0xff95A9C6),
               elevation: 10,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -505,7 +505,7 @@ class projectDetail extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Card(
-                  color: Colors.blue[700],
+                  color: Color(0xff95A9C6),
                   elevation: 10,
                   child: Container(
                     width: 157,
@@ -538,7 +538,7 @@ class projectDetail extends StatelessWidget {
                   ),
                 ),
                 Card(
-                  color: Colors.blue[700],
+                  color: Color(0xff95A9C6),
                   elevation: 10,
                   child: Container(
                     width: 157,

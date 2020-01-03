@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterfire/core/model/projects.dart';
-import 'package:flutterfire/ui/view/home/fire_home_view.dart';
+
 
 import 'package:flutterfire/core/services/firebase_service.dart';
 
@@ -14,7 +14,7 @@ class history extends StatelessWidget {
         title: Text("History"),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.search),
+            icon: Icon(Icons.history),
             onPressed: () async {},
           ),
         ],
@@ -31,7 +31,7 @@ class history extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15.0),
                     ),
-                    color: Colors.blue,
+                    color:  Color(0xff95A9C6),
                     elevation: 10,
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -97,12 +97,13 @@ class _historyDetailsState extends State<historyDetails> {
       appBar: AppBar(
         title: Text("Week " + index1.toString()),
         elevation: 10.0,
-        leading: Icon(Icons.history),
+        leading: Icon(Icons.search),
         centerTitle: true,
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () async {},
+            icon: Icon(Icons.home),
+            onPressed: () async {Navigator.pop(context);
+          },
           ),
         ],
       ),

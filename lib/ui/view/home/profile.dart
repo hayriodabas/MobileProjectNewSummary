@@ -118,7 +118,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
       clipper: MyClipper(),
       child: Container(
         padding: EdgeInsets.only(top: 4),
-        decoration: BoxDecoration(color: Colors.blue, boxShadow: [
+        decoration: BoxDecoration(color:  Color(0xff95A9C6), boxShadow: [
           BoxShadow(color: Colors.red, blurRadius: 20, offset: Offset(0, 0))
         ]),
         child: Column(
