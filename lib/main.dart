@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Material App',  
+        title: 'Aquila Lite',  
         theme: ThemeData(
           primarySwatch: MaterialColor(0xFF363C44, color),
         ),
