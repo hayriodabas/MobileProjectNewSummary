@@ -23,6 +23,8 @@ final List<String> _swHataListe = [
   "#321456",
 ];
 
+
+
 class FireHomeView extends StatefulWidget {
   @override
   _FireHomeViewState createState() => _FireHomeViewState();
@@ -43,7 +45,7 @@ class _FireHomeViewState extends State<FireHomeView> {
         elevation: 10.0,
         leading: Icon(Icons.home),
         centerTitle: true,
-        title: Text("AnaSayfa"),
+        title: Logo(), // 2
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
@@ -739,6 +741,25 @@ class _hataDetailState extends State<hataDetail>
           ),
         ],
       ),
+    );
+  }
+}
+
+
+
+
+class Logo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center, // centers horizontally
+      crossAxisAlignment: CrossAxisAlignment.center, // centers vertically
+      children: <Widget>[
+        Image.asset("assets/images/aquilalogo.png", width: 50),
+        SizedBox(
+          width: 0,
+        ), // The size box provides an immediate spacing between the widgets
+      ],
     );
   }
 }

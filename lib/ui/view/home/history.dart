@@ -4,14 +4,19 @@ import 'package:flutterfire/core/model/projects.dart';
 
 import 'package:flutterfire/core/services/firebase_service.dart';
 
+import 'fire_home_view.dart';
+
 class history extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         elevation: 10.0,
+        leading: SizedBox(
+          width: 10,
+        ),
         centerTitle: true,
-        title: Text("History"),
+        title: Logo(),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.history),
@@ -22,7 +27,7 @@ class history extends StatelessWidget {
       body: Container(
         child: ListView.builder(
             shrinkWrap: true,
-            itemCount: 53,
+            itemCount: 52,
             itemBuilder: (BuildContext ctxt, int index) {
               return Container(
                   margin: EdgeInsets.fromLTRB(12, 0, 12, 0),
@@ -40,7 +45,7 @@ class history extends StatelessWidget {
                           children: <Widget>[
                             Text("WEEK",
                                 style: TextStyle(color: Colors.white, fontSize: 20)),
-                            Text(index.toString(),
+                            Text((index+1).toString(),
                                 style: TextStyle(color: Colors.white, fontSize: 20)),
                             SizedBox(width: 60,),
                             FlatButton(
@@ -50,11 +55,12 @@ class history extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                       builder: (context) => historyDetails(index),
+                                       builder: (context) => historyDetails(index+1),
                                     ));
                               },
                             ),
                           ],
+
                         ),
                       ),
                     ),
@@ -97,14 +103,26 @@ class _historyDetailsState extends State<historyDetails> {
       appBar: AppBar(
         title: Text("Week " + index1.toString()),
         elevation: 10.0,
-        leading: Icon(Icons.search),
+        leading: Builder(
+        builder: (BuildContext context) {
+          return IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () async {Navigator.pop(context);},
+            tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+          );
+        },
+      ),
         centerTitle: true,
+        
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.home),
-            onPressed: () async {Navigator.pop(context);
-          },
+            icon: Icon(Icons.search),
+            onPressed: () async {},
+          
           ),
+
+
+
         ],
       ),
       body: projectsFutureBuilder,

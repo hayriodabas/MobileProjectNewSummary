@@ -106,7 +106,7 @@ class ProfilePage extends StatelessWidget {
 }
 
 final String url =
-    "https://avatars1.githubusercontent.com/u/50305871?s=460&v=4";
+    "https://retohercules.com/images600_/individual-7.png";
 
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
@@ -125,15 +125,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
           children: <Widget>[
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text(
-                  "Profile",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                  ),
-                ),
-              ],
+       
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
