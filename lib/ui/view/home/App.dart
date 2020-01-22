@@ -29,10 +29,10 @@ class _AppState extends State<App> {
             title: Text("Home"),
             icon: Icon(Icons.home),
           ),
-          BottomNavigationBarItem(
+        /*   BottomNavigationBarItem(
             title: Text("Profile"),
             icon: Icon(Icons.person),
-          ),
+          ), */
         ],
         onTap: _onBarItemTap,
         currentIndex: _selectedIndex,
