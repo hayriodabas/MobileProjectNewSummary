@@ -60,8 +60,8 @@ class Projects {
 class Bugs {
   List<HWBug> hWBug;
   List<SWBug> sWBug;
-
-  Bugs({this.hWBug, this.sWBug});
+  List<FixedBug> fixedBug;
+  Bugs({this.hWBug, this.sWBug,this.fixedBug});
 
   Bugs.fromJson(Map<String, dynamic> json) {
     if (json['HWBug'] != null) {
@@ -80,6 +80,14 @@ class Bugs {
     }else{
        sWBug = new List<SWBug>();
     }
+    if (json['FixedBug'] != null) {
+      fixedBug = new List<FixedBug>();
+      json['FixedBug'].forEach((v) {
+        fixedBug.add(new FixedBug.fromJson(v));
+      });
+    }else{
+       fixedBug = new List<FixedBug>();
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -89,6 +97,9 @@ class Bugs {
     }
     if (this.sWBug != null) {
       data['SWBug'] = this.sWBug.map((v) => v.toJson()).toList();
+    }
+    if (this.fixedBug != null) {
+      data['FixedBug'] = this.fixedBug.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -116,6 +127,22 @@ class SWBug {
   SWBug({this.bugName});
 
   SWBug.fromJson(Map<String, dynamic> json) {
+    bugName = json['BugName'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['BugName'] = this.bugName;
+    return data;
+  }
+}
+
+class FixedBug {
+  String bugName;
+
+  FixedBug({this.bugName});
+
+  FixedBug.fromJson(Map<String, dynamic> json) {
     bugName = json['BugName'];
   }
 

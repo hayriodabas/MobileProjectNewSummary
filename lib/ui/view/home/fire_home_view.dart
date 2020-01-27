@@ -387,6 +387,16 @@ class projectDetail extends StatelessWidget {
   Projects project;
 
   projectDetail(data) : this.project = data;
+String _backgroundImage;
+    String _setImage() {
+      if (project.source.toString() == "BMİ") {
+      _backgroundImage= "assets/images/washingmachine.png";
+    } else if (project.source.toString() == "ÇMİ") {
+      _backgroundImage= "assets/images/refrigerator.png";
+    }
+      print("_backgroundImage: $_backgroundImage");
+      return _backgroundImage; // here it returns your _backgroundImage value
+    }
 
   @override
   Widget build(BuildContext context) {
@@ -406,12 +416,18 @@ class projectDetail extends StatelessWidget {
         padding: EdgeInsets.all(10.0),
         child: Column(
           children: <Widget>[
-            Container(
-              alignment: Alignment.center,
-              height: 200,
-              child: Image.network(
-                  'https://cdn.akakce.com/beko/beko-bm-4004-i-a-4-programli-inox-z.jpg'),
-            ),
+                              Container(
+                    child: Container(
+                      width: 100,
+                      height: 150,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        image: new DecorationImage(
+                        fit: BoxFit.cover,
+                        image: new AssetImage(_setImage()) // not working
+                        ),
+                      ),
+                    ),),
             SizedBox(
               height: 10,
             ),
@@ -514,7 +530,7 @@ class projectDetail extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => hataDetail(project,0),
+                              builder: (context) => hataDetail(project, 0),
                             ));
                       },
                       child: Padding(
@@ -524,7 +540,7 @@ class projectDetail extends StatelessWidget {
                             Text(
                               project.hWBug.toString(),
                               style:
-                                  TextStyle(color: Colors.white, fontSize: 60),
+                                  TextStyle(color: Colors.white, fontSize: 40),
                             ),
                             Text(
                               'HW',
@@ -547,7 +563,7 @@ class projectDetail extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => hataDetail(project,1),
+                              builder: (context) => hataDetail(project, 1),
                             ));
                       },
                       child: Padding(
@@ -557,7 +573,7 @@ class projectDetail extends StatelessWidget {
                             Text(
                               project.sWBug.toString(),
                               style:
-                                  TextStyle(color: Colors.white, fontSize: 60),
+                                  TextStyle(color: Colors.white, fontSize: 40),
                             ),
                             Text(
                               'SW',
@@ -580,7 +596,7 @@ class projectDetail extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => hataDetail(project,2),
+                              builder: (context) => hataDetail(project, 2),
                             ));
                       },
                       child: Padding(
@@ -588,9 +604,9 @@ class projectDetail extends StatelessWidget {
                         child: Column(
                           children: <Widget>[
                             Text(
-                              project.hWBug.toString(),
+                              project.fixedBug.toString(),
                               style:
-                                  TextStyle(color: Colors.white, fontSize: 60),
+                                  TextStyle(color: Colors.white, fontSize: 40),
                             ),
                             Text(
                               'FIXED',
@@ -614,10 +630,12 @@ class projectDetail extends StatelessWidget {
 
 class hataDetail extends StatefulWidget {
   Projects project;
-  int selected=0;
-  hataDetail(data,index) : this.project = data, this.selected=index;
+  int selected = 0;
+  hataDetail(data, index)
+      : this.project = data,
+        this.selected = index;
   @override
-  _hataDetailState createState() => _hataDetailState(project,selected);
+  _hataDetailState createState() => _hataDetailState(project, selected);
 }
 
 class _hataDetailState extends State<hataDetail>
@@ -626,14 +644,27 @@ class _hataDetailState extends State<hataDetail>
 
   Projects project;
 
-  int selected=0;
-  _hataDetailState(data,index) : this.project = data, this.selected=index;
+  int selected = 0;
+  _hataDetailState(data, index)
+      : this.project = data,
+        this.selected = index;
   @override
   void initState() {
     super.initState();
     _controller = TabController(length: 3, vsync: this);
     _controller.animateTo(selected);
   }
+    String _backgroundImage;
+    String _setImage() {
+      if (project.source.toString() == "BMİ") {
+      _backgroundImage= "assets/images/washingmachine.png";
+    } else if (project.source.toString() == "ÇMİ") {
+      _backgroundImage= "assets/images/refrigerator.png";
+    }
+      print("_backgroundImage: $_backgroundImage");
+      return _backgroundImage; // here it returns your _backgroundImage value
+    }
+
 
   @override
   Widget build(BuildContext context) {
@@ -663,10 +694,9 @@ class _hataDetailState extends State<hataDetail>
                       height: 150,
                       decoration: BoxDecoration(
                         shape: BoxShape.rectangle,
-                        image: DecorationImage(
-                          fit: BoxFit.fitHeight,
-                          image: NetworkImage(
-                              'https://cdn.akakce.com/beko/beko-bm-4004-i-a-4-programli-inox-z.jpg'),
+                        image: new DecorationImage(
+                        fit: BoxFit.cover,
+                        image: new AssetImage(_setImage()) // not working
                         ),
                       ),
                     ),
@@ -738,7 +768,6 @@ class _hataDetailState extends State<hataDetail>
               ],
             ),
           ),
-         
           Container(
             height: 500,
             child: Container(
@@ -772,12 +801,12 @@ class _hataDetailState extends State<hataDetail>
                   ),
                   Card(
                     child: ListView.separated(
-                      itemCount: project.bugs.hWBug.length,
+                      itemCount: project.bugs.fixedBug.length,
                       separatorBuilder: (context, index) =>
                           Divider(height: 1.0, color: Colors.grey),
                       itemBuilder: (context, index) {
                         return ListTile(
-                          title: Text(project.bugs.hWBug[index].bugName),
+                          title: Text(project.bugs.fixedBug[index].bugName),
                         );
                       },
                     ),
