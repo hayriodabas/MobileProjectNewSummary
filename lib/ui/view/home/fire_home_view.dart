@@ -23,8 +23,6 @@ final List<String> _swHataListe = [
   "#321456",
 ];
 
-
-
 class FireHomeView extends StatefulWidget {
   @override
   _FireHomeViewState createState() => _FireHomeViewState();
@@ -306,7 +304,7 @@ class _FireHomeViewState extends State<FireHomeView> {
   int _id;
   Widget _projectCard(Projects project) {
     return Card(
-       color :  Color(0xff95A9C6),
+      color: Color(0xff95A9C6),
       child: InkWell(
         onTap: () {
           Navigator.push(
@@ -438,7 +436,7 @@ class projectDetail extends StatelessWidget {
                   color: Colors.blueGrey[300],
                   elevation: 10,
                   child: Container(
-                     width: 157,
+                    width: 157,
                     height: 60,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -510,13 +508,13 @@ class projectDetail extends StatelessWidget {
                   color: Color(0xff95A9C6),
                   elevation: 10,
                   child: Container(
-                    width: 157,
+                    width: 100,
                     child: InkWell(
                       onTap: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => hataDetail(project),
+                              builder: (context) => hataDetail(project,0),
                             ));
                       },
                       child: Padding(
@@ -529,7 +527,7 @@ class projectDetail extends StatelessWidget {
                                   TextStyle(color: Colors.white, fontSize: 60),
                             ),
                             Text(
-                              'HW HATA',
+                              'HW',
                               style:
                                   TextStyle(color: Colors.white, fontSize: 20),
                             )
@@ -543,13 +541,13 @@ class projectDetail extends StatelessWidget {
                   color: Color(0xff95A9C6),
                   elevation: 10,
                   child: Container(
-                    width: 157,
+                    width: 100,
                     child: InkWell(
                       onTap: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => hataDetail(project),
+                              builder: (context) => hataDetail(project,1),
                             ));
                       },
                       child: Padding(
@@ -562,7 +560,40 @@ class projectDetail extends StatelessWidget {
                                   TextStyle(color: Colors.white, fontSize: 60),
                             ),
                             Text(
-                              'SW HATA',
+                              'SW',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 20),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Card(
+                  color: Color(0xff95A9C6),
+                  elevation: 10,
+                  child: Container(
+                    width: 100,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => hataDetail(project,2),
+                            ));
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: <Widget>[
+                            Text(
+                              project.hWBug.toString(),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 60),
+                            ),
+                            Text(
+                              'FIXED',
                               style:
                                   TextStyle(color: Colors.white, fontSize: 20),
                             )
@@ -583,10 +614,10 @@ class projectDetail extends StatelessWidget {
 
 class hataDetail extends StatefulWidget {
   Projects project;
-
-  hataDetail(data) : this.project = data;
+  int selected=0;
+  hataDetail(data,index) : this.project = data, this.selected=index;
   @override
-  _hataDetailState createState() => _hataDetailState(project);
+  _hataDetailState createState() => _hataDetailState(project,selected);
 }
 
 class _hataDetailState extends State<hataDetail>
@@ -595,11 +626,13 @@ class _hataDetailState extends State<hataDetail>
 
   Projects project;
 
-  _hataDetailState(data) : this.project = data;
+  int selected=0;
+  _hataDetailState(data,index) : this.project = data, this.selected=index;
   @override
   void initState() {
     super.initState();
-    _controller = TabController(length: 2, vsync: this);
+    _controller = TabController(length: 3, vsync: this);
+    _controller.animateTo(selected);
   }
 
   @override
@@ -642,41 +675,41 @@ class _hataDetailState extends State<hataDetail>
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                         Padding(
-                           padding: const EdgeInsets.all(8.0),
-                           child: SizedBox(
-                              width: 200.0,
-                              height: 40.0,
-                              child: AutoSizeText(
-                                project.projectName,
-                                style: TextStyle(fontSize: 25.0),
-                                maxLines: 2,
-                              ),
-                            ),
-                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: SizedBox(
-                              width: 200.0,
-                              height: 30.0,
-                              child: AutoSizeText(
-                                project.mPDate,
-                                style: TextStyle(fontSize: 20.0),
-                                maxLines: 2,
-                              ),
+                            width: 200.0,
+                            height: 40.0,
+                            child: AutoSizeText(
+                              project.projectName,
+                              style: TextStyle(fontSize: 25.0),
+                              maxLines: 2,
                             ),
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: SizedBox(
-                              width: 200.0,
-                              height: 30.0,
-                              child: AutoSizeText(
-                               project.source,
-                                style: TextStyle(fontSize: 20.0),
-                                maxLines: 2,
-                              ),
+                            width: 200.0,
+                            height: 30.0,
+                            child: AutoSizeText(
+                              project.mPDate,
+                              style: TextStyle(fontSize: 20.0),
+                              maxLines: 2,
                             ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: SizedBox(
+                            width: 200.0,
+                            height: 30.0,
+                            child: AutoSizeText(
+                              project.source,
+                              style: TextStyle(fontSize: 20.0),
+                              maxLines: 2,
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -698,45 +731,59 @@ class _hataDetailState extends State<hataDetail>
                   icon: const Icon(Icons.error),
                   text: 'SW HATA',
                 ),
+                Tab(
+                  icon: const Icon(Icons.error),
+                  text: 'FIXED',
+                ),
               ],
             ),
           ),
+         
           Container(
-            height: 1000.0,
-
+            height: 500,
             child: Container(
-              child:
-                TabBarView(
-                  controller: _controller,
-                  children: <Widget>[
-                    
-                    Card(
-                      child: ListView.separated(
-                        itemCount: project.bugs.hWBug.length,
-                        separatorBuilder: (context, index) =>
-                            Divider(height: 1.0, color: Colors.grey),
-                        itemBuilder: (context, index) {
-                          return ListTile(
-                            title: Text(project.bugs.hWBug[index].bugName),
-                          );
-                        },
-                      ),
+              child: TabBarView(
+                controller: _controller,
+                children: <Widget>[
+                  Card(
+                    child: ListView.separated(
+                      shrinkWrap: true,
+                      itemCount: project.bugs.hWBug.length,
+                      separatorBuilder: (context, index) =>
+                          Divider(height: 1.0, color: Colors.grey),
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          title: Text(project.bugs.hWBug[index].bugName),
+                        );
+                      },
                     ),
-                    Card(
-                      child: ListView.separated(
-                        itemCount: project.bugs.sWBug.length,
-                        separatorBuilder: (context, index) =>
-                            Divider(height: 1.0, color: Colors.grey),
-                        itemBuilder: (context, index) {
-                          return ListTile(
-                            title: Text(project.bugs.sWBug[index].bugName),
-                          );
-                        },
-                      ),
+                  ),
+                  Card(
+                    child: ListView.separated(
+                      itemCount: project.bugs.sWBug.length,
+                      separatorBuilder: (context, index) =>
+                          Divider(height: 1.0, color: Colors.grey),
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          title: Text(project.bugs.sWBug[index].bugName),
+                        );
+                      },
                     ),
-                  ],
-                ),
-              
+                  ),
+                  Card(
+                    child: ListView.separated(
+                      itemCount: project.bugs.hWBug.length,
+                      separatorBuilder: (context, index) =>
+                          Divider(height: 1.0, color: Colors.grey),
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          title: Text(project.bugs.hWBug[index].bugName),
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
@@ -744,9 +791,6 @@ class _hataDetailState extends State<hataDetail>
     );
   }
 }
-
-
-
 
 class Logo extends StatelessWidget {
   @override
