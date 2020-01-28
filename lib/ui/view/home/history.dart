@@ -47,9 +47,9 @@ class history extends StatelessWidget {
                         child: ButtonBar(alignment: MainAxisAlignment.spaceAround,
                           children: <Widget>[
                             Text("WEEK",
-                                style: TextStyle(color: Colors.white, fontSize: 20)),
+                                style: TextStyle(color: Colors.white, fontSize: MediaQuery.of(context).size.height * 0.025)),
                             Text((index+1).toString(),
-                                style: TextStyle(color: Colors.white, fontSize: 20)),
+                                style: TextStyle(color: Colors.white, fontSize: MediaQuery.of(context).size.height * 0.025)),
                             SizedBox(width: MediaQuery.of(context).size.width * 0.1,),
                             FlatButton(
                               child: const Text('Geçmiş Detayları>',

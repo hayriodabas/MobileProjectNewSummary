@@ -466,7 +466,7 @@ class projectDetail extends StatelessWidget {
                   color: Colors.blueGrey[300],
                   elevation: 10,
                   child: Container(
-                    width: MediaQuery.of(context).size.width * 0.45,
+                    width: MediaQuery.of(context).size.width * 0.43,
                     height:  MediaQuery.of(context).size.height * 0.07,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -482,7 +482,7 @@ class projectDetail extends StatelessWidget {
                   color: Colors.blueGrey[300],
                   elevation: 10,
                   child: Container(
-                    width: MediaQuery.of(context).size.width * 0.45,
+                    width: MediaQuery.of(context).size.width * 0.43,
                    
                     height:  MediaQuery.of(context).size.height * 0.07,
                     child: Column(
