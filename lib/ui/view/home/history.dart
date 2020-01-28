@@ -12,14 +12,17 @@ class history extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 10.0,
-        leading: SizedBox(
+        leading: Icon(Icons.history),
+        
+       /* leading: SizedBox(
           width:  MediaQuery.of(context).size.width * 0.55,
-        ),
+        ),*/
         centerTitle: true,
         title: Logo(),
+        
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.history),
+            icon: Icon(Icons.search),
             onPressed: () async {},
           ),
         ],

@@ -419,12 +419,12 @@ class projectDetail extends StatelessWidget {
         elevation: 10.0,
         centerTitle: true,
         title: Text("Proje Detayları"),
-        actions: <Widget>[
+        /*actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
             onPressed: () async {},
           ),
-        ],
+        ],*/
       ),
       body: Padding(
         padding: EdgeInsets.all(10.0),
@@ -708,12 +708,12 @@ class _hataDetailState extends State<hataDetail>
         title: Text('Proje Hata Detayları'),
         centerTitle: true,
         elevation: 10.0,
-        actions: <Widget>[
+       /* actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
             onPressed: () async {},
           ),
-        ],
+        ],*/
       ),
       body: ListView(
         children: <Widget>[
