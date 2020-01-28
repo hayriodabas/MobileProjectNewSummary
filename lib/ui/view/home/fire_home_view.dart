@@ -738,7 +738,7 @@ class _hataDetailState extends State<hataDetail>
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: SizedBox(
-                            width: 200.0,
+                            width: 150.0,
                             height: 40.0,
                             child: AutoSizeText(
                               project.projectName,
@@ -750,7 +750,7 @@ class _hataDetailState extends State<hataDetail>
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: SizedBox(
-                            width: 200.0,
+                            width: 150.0,
                             height: 30.0,
                             child: AutoSizeText(
                               project.mPDate,
@@ -762,7 +762,7 @@ class _hataDetailState extends State<hataDetail>
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: SizedBox(
-                            width: 200.0,
+                            width: 150.0,
                             height: 30.0,
                             child: AutoSizeText(
                               project.source,
