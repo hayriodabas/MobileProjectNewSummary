@@ -13,7 +13,7 @@ class history extends StatelessWidget {
       appBar: AppBar(
         elevation: 10.0,
         leading: SizedBox(
-          width: 10,
+          width:  MediaQuery.of(context).size.width * 0.55,
         ),
         centerTitle: true,
         title: Logo(),
@@ -47,7 +47,7 @@ class history extends StatelessWidget {
                                 style: TextStyle(color: Colors.white, fontSize: 20)),
                             Text((index+1).toString(),
                                 style: TextStyle(color: Colors.white, fontSize: 20)),
-                            SizedBox(width: 60,),
+                            SizedBox(width: MediaQuery.of(context).size.width * 0.1,),
                             FlatButton(
                               child: const Text('Geçmiş Detayları>',
                                   style: TextStyle(color: Colors.white)),
