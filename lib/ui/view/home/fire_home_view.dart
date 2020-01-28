@@ -387,17 +387,30 @@ class projectDetail extends StatelessWidget {
   Projects project;
 
   projectDetail(data) : this.project = data;
-String _backgroundImage;
-    String _setImage() {
-      if (project.source.toString() == "BMİ") {
-      _backgroundImage= "assets/images/washingmachine.png";
-    } else if (project.source.toString() == "ÇMİ") {
-      _backgroundImage= "assets/images/refrigerator.png";
+  String _backgroundImage;
+  String _setImage() {
+    if (project.productType.toString() == "bulasik") {
+      _backgroundImage = "assets/images/bulasik1.png";
+    } else if (project.productType.toString() == "buzdolabi") {
+      _backgroundImage = "assets/images/buzdolabi1.png";
+    } else if (project.productType.toString() == "camasir") {
+      _backgroundImage = "assets/images/camasir1.png";
+    } else if (project.productType.toString() == "cay") {
+      _backgroundImage = "assets/images/cay1.png";
+    } else if (project.productType.toString() == "davlumbaz") {
+      _backgroundImage = "assets/images/davlumbaz1.png";
+    } else if (project.productType.toString() == "diger") {
+      _backgroundImage = "assets/images/diger1.png";
+    } else if (project.productType.toString() == "firin") {
+      _backgroundImage = "assets/images/firin1.png";
+    } else if (project.productType.toString() == "kurutucu") {
+      _backgroundImage = "assets/images/kurutucu1.png";
+    } else if (project.productType.toString() == "ocak") {
+      _backgroundImage = "assets/images/ocak1.png";
     }
-      print("_backgroundImage: $_backgroundImage");
-      return _backgroundImage; // here it returns your _backgroundImage value
-    }
-
+    print("_backgroundImage: $_backgroundImage");
+    return _backgroundImage; // here it returns your _backgroundImage value
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -416,18 +429,18 @@ String _backgroundImage;
         padding: EdgeInsets.all(10.0),
         child: Column(
           children: <Widget>[
-                              Container(
-                    child: Container(
-                      width: 100,
-                      height: 150,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
-                        image: new DecorationImage(
-                        fit: BoxFit.cover,
-                        image: new AssetImage(_setImage()) // not working
-                        ),
+            Container(
+              child: Container(
+                height: 150,
+                decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  image: new DecorationImage(
+                      fit: BoxFit.cover,
+                      image: new AssetImage(_setImage()) // not working
                       ),
-                    ),),
+                ),
+              ),
+            ),
             SizedBox(
               height: 10,
             ),
@@ -654,16 +667,33 @@ class _hataDetailState extends State<hataDetail>
     _controller = TabController(length: 3, vsync: this);
     _controller.animateTo(selected);
   }
-    String _backgroundImage;
-    String _setImage() {
-      if (project.source.toString() == "BMİ") {
-      _backgroundImage= "assets/images/washingmachine.png";
-    } else if (project.source.toString() == "ÇMİ") {
-      _backgroundImage= "assets/images/refrigerator.png";
+
+  String _backgroundImage;
+
+    String _setImage2() {
+      if (project.productType.toString() == "bulasik") {
+      _backgroundImage= "assets/images/bulasik2.png";
+    } else if (project.productType.toString() == "buzdolabi") {
+      _backgroundImage= "assets/images/buzdolabi2.png";
+    }else if (project.productType.toString() == "camasir") {
+      _backgroundImage= "assets/images/camasir2.png";
+    }else if (project.productType.toString() == "cay") {
+      _backgroundImage= "assets/images/cay2.png";
+    }else if (project.productType.toString() == "davlumbaz") {
+      _backgroundImage= "assets/images/davlumbaz2.png";
+    }else if (project.productType.toString() == "diger") {
+      _backgroundImage= "assets/images/diger2.png";
+    }else if (project.productType.toString() == "firin") {
+      _backgroundImage= "assets/images/firin2.png";
+    }else if (project.productType.toString() == "kurutucu") {
+      _backgroundImage= "assets/images/kurutucu2.png";
+    }else if (project.productType.toString() == "ocak") {
+      _backgroundImage= "assets/images/ocak2.png";
     }
       print("_backgroundImage: $_backgroundImage");
       return _backgroundImage; // here it returns your _backgroundImage value
     }
+
 
 
   @override
@@ -690,14 +720,14 @@ class _hataDetailState extends State<hataDetail>
                 children: <Widget>[
                   Container(
                     child: Container(
-                      width: 100,
+                      width: 150,
                       height: 150,
                       decoration: BoxDecoration(
                         shape: BoxShape.rectangle,
                         image: new DecorationImage(
-                        fit: BoxFit.cover,
-                        image: new AssetImage(_setImage()) // not working
-                        ),
+                            fit: BoxFit.cover,
+                            image: new AssetImage(_setImage2()) // not working
+                            ),
                       ),
                     ),
                   ),

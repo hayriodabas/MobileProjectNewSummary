@@ -48,6 +48,24 @@ flutter:
   - assets/images/aquilalogo.png
   - assets/images/refrigerator.png
   - assets/images/washingmachine.png
+  - assets/images/bulasik1.png
+  - assets/images/bulasik2.png
+  - assets/images/buzdolabi1.png
+  - assets/images/buzdolabi2.png
+  - assets/images/camasir1.png
+  - assets/images/camasir2.png
+  - assets/images/cay1.png
+  - assets/images/cay2.png
+  - assets/images/davlumbaz1.png
+  - assets/images/davlumbaz2.png
+  - assets/images/diger1.png
+  - assets/images/diger2.png
+  - assets/images/firin1.png
+  - assets/images/firin2.png
+  - assets/images/kurutucu1.png
+  - assets/images/kurutucu2.png
+  - assets/images/ocak1.png
+  - assets/images/ocak2.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

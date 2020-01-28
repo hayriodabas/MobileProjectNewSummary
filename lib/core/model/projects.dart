@@ -7,6 +7,7 @@ class Projects {
   int totalBug;
   String key;
   String source;
+  String productType;
   String mPDate;
   String week;
   String yorum;
@@ -22,6 +23,7 @@ class Projects {
       this.bugs,
       this.mPDate,
       this.source,
+      this.productType,
       this.week});
 
   Projects.fromJson(Map<String, dynamic> json) {
@@ -33,6 +35,7 @@ class Projects {
     sWBug = int.parse(json['SWBug']);
     totalBug = int.parse(json['TotalBug']);
     source = json['Source'];
+    productType = json['ProductType'];
     mPDate = json['MPDate'];
     week = json['Week'];
     yorum = json['Yorum'];
@@ -50,6 +53,7 @@ class Projects {
     data['SWBug'] = this.sWBug;
     data['TotalBug'] = this.totalBug;
     data['Source'] = this.source;
+    data['ProductType'] = this.productType;
     data['MPDate'] = this.mPDate;
     data['Week'] = this.week;
     data['Yorum'] = this.yorum;
