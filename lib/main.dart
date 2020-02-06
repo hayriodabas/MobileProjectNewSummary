@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'ui/view/home/App.dart';
-
-void main() => runApp(MyApp());
-
+import 'package:flutter/services.dart';
+void main() {
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+    .then((_) {
+      runApp(new MyApp());
+    });
+}
 class MyApp extends StatelessWidget {
   Map<int, Color> color =
   {

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "951148989665",
+    "firebase_url": "https://aquilalite-a9755.firebaseio.com",
+    "project_id": "aquilalite-a9755",
+    "storage_bucket": "aquilalite-a9755.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:951148989665:android:3339c2c9946a3ffae2bba0",
+        "android_client_info": {
+          "package_name": "com.arcelik.aquilaliteapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "951148989665-0nnbs4h4k8dufpk6vm40unuvc1lb13cp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzLGZq7KJcn2vlixYcJh8c8IHFnSgjoXE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "951148989665-0nnbs4h4k8dufpk6vm40unuvc1lb13cp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
