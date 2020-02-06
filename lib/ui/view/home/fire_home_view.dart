@@ -443,7 +443,7 @@ class projectDetail extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height:  MediaQuery.of(context).size.height * 0.01,
+              height: MediaQuery.of(context).size.height * 0.01,
             ),
             Text(
               project.projectName,
@@ -454,7 +454,7 @@ class projectDetail extends StatelessWidget {
               color: Colors.black,
             ),
             SizedBox(
-             height:  MediaQuery.of(context).size.height * 0.01,
+              height: MediaQuery.of(context).size.height * 0.01,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -467,13 +467,20 @@ class projectDetail extends StatelessWidget {
                   elevation: 10,
                   child: Container(
                     width: MediaQuery.of(context).size.width * 0.43,
-                    height:  MediaQuery.of(context).size.height * 0.07,
+                    height: MediaQuery.of(context).size.height * 0.07,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text("MP DATE", style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.height * 0.018)),
+                        Text("MP DATE",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: MediaQuery.of(context).size.height *
+                                    0.018)),
                         Text(project.mPDate,
-                            style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.height * 0.017)),
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: MediaQuery.of(context).size.height *
+                                    0.017)),
                       ],
                     ),
                   ),
@@ -483,18 +490,26 @@ class projectDetail extends StatelessWidget {
                   elevation: 10,
                   child: Container(
                     width: MediaQuery.of(context).size.width * 0.43,
-                   
-                    height:  MediaQuery.of(context).size.height * 0.07,
+                    height: MediaQuery.of(context).size.height * 0.07,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text("İŞLETME", style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.height * 0.018)),
+                        Text("İŞLETME",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: MediaQuery.of(context).size.height *
+                                    0.018)),
                         Text(project.source,
-                            style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.height * 0.017)),
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: MediaQuery.of(context).size.height *
+                                    0.017)),
                       ],
                     ),
                   ),
                 ),
+
+
                 // Card(
                 //   color: Colors.blueGrey[300],
                 //   elevation: 10,
@@ -519,23 +534,26 @@ class projectDetail extends StatelessWidget {
               color: Color(0xff95A9C6),
               elevation: 10,
               child: Container(
-               
                 width: MediaQuery.of(context).size.width * 0.92,
                 child: Column(
-                  
                   children: <Widget>[
-                    new ListTile(
-                      title: Text(
-                        'YORUM',
-                        style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.height * 0.018)),
-                      subtitle: Text(project.yorum.toString(),style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.height * 0.017)),
+                    ListTile(
+                      title: Text('YORUM',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize:
+                                  MediaQuery.of(context).size.height * 0.018)),
+                      subtitle: Text(project.yorum.toString(),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize:
+                                  MediaQuery.of(context).size.height * 0.017)),
                     ),
                   ],
                 ),
               ),
             ),
             Container(
-             
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -558,13 +576,19 @@ class projectDetail extends StatelessWidget {
                             children: <Widget>[
                               Text(
                                 project.hWBug.toString(),
-                                style:
-                                    TextStyle(color: Colors.white, fontSize: MediaQuery.of(context).size.height * 0.05),
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize:
+                                        MediaQuery.of(context).size.height *
+                                            0.05),
                               ),
                               Text(
                                 'HW',
-                                style:
-                                    TextStyle(color: Colors.white,  fontSize: MediaQuery.of(context).size.height * 0.025),
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize:
+                                        MediaQuery.of(context).size.height *
+                                            0.025),
                               )
                             ],
                           ),
@@ -591,13 +615,19 @@ class projectDetail extends StatelessWidget {
                             children: <Widget>[
                               Text(
                                 project.sWBug.toString(),
-                                style:
-                                    TextStyle(color: Colors.white,  fontSize: MediaQuery.of(context).size.height * 0.05),
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize:
+                                        MediaQuery.of(context).size.height *
+                                            0.05),
                               ),
                               Text(
                                 'SW',
-                                style:
-                                    TextStyle(color: Colors.white,  fontSize: MediaQuery.of(context).size.height * 0.025),
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize:
+                                        MediaQuery.of(context).size.height *
+                                            0.025),
                               )
                             ],
                           ),
@@ -624,13 +654,19 @@ class projectDetail extends StatelessWidget {
                             children: <Widget>[
                               Text(
                                 project.fixedBug.toString(),
-                                style:
-                                    TextStyle(color: Colors.white, fontSize: MediaQuery.of(context).size.height * 0.05),
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize:
+                                        MediaQuery.of(context).size.height *
+                                            0.05),
                               ),
                               Text(
                                 'FIXED',
-                                style:
-                                    TextStyle(color: Colors.white,   fontSize: MediaQuery.of(context).size.height * 0.025),
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize:
+                                        MediaQuery.of(context).size.height *
+                                            0.025),
                               )
                             ],
                           ),
@@ -640,6 +676,17 @@ class projectDetail extends StatelessWidget {
                   ),
                 ],
               ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.01,
+            ),
+            Text(
+              "Son güncelleneme zamanı : 21.01.2020  19:03",
+              style: TextStyle(fontSize: 16, color: Colors.blueGrey),
+            ),
+            Divider(
+              height: 2,
+              color: Colors.blueGrey,
             ),
           ],
         ),
@@ -708,7 +755,7 @@ class _hataDetailState extends State<hataDetail>
         title: Text('Proje Hata Detayları'),
         centerTitle: true,
         elevation: 10.0,
-       /* actions: <Widget>[
+        /* actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
             onPressed: () async {},
@@ -725,8 +772,8 @@ class _hataDetailState extends State<hataDetail>
                 children: <Widget>[
                   Container(
                     child: Container(
-                    width: MediaQuery.of(context).size.width * 0.4,
-                    height: MediaQuery.of(context).size.width * 0.4,
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      height: MediaQuery.of(context).size.width * 0.4,
                       decoration: BoxDecoration(
                         shape: BoxShape.rectangle,
                         image: new DecorationImage(
@@ -743,8 +790,7 @@ class _hataDetailState extends State<hataDetail>
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: SizedBox(
-                           
-                          width: MediaQuery.of(context).size.width * 0.5,
+                            width: MediaQuery.of(context).size.width * 0.5,
                             height: 40.0,
                             child: AutoSizeText(
                               project.projectName,
@@ -756,11 +802,10 @@ class _hataDetailState extends State<hataDetail>
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: SizedBox(
-                            
-                          width: MediaQuery.of(context).size.width * 0.4,
+                            width: MediaQuery.of(context).size.width * 0.4,
                             height: 30.0,
                             child: AutoSizeText(
-                              "MP Date: " +project.mPDate,
+                              "MP Date: " + project.mPDate,
                               style: TextStyle(fontSize: 20.0),
                               maxLines: 2,
                             ),
@@ -769,11 +814,10 @@ class _hataDetailState extends State<hataDetail>
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: SizedBox(
-                            
-                          width: MediaQuery.of(context).size.width * 0.4,
+                            width: MediaQuery.of(context).size.width * 0.4,
                             height: 30.0,
                             child: AutoSizeText(
-                             "İşletme: "+ project.source,
+                              "İşletme: " + project.source,
                               style: TextStyle(fontSize: 20.0),
                               maxLines: 2,
                             ),
