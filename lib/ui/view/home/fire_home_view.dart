@@ -426,222 +426,259 @@ class projectDetail extends StatelessWidget {
           ),
         ],*/
       ),
-      body: Padding(
-        padding: EdgeInsets.all(10.0),
-        child: Column(
-          children: <Widget>[
-            Container(
-              child: Container(
-                height: MediaQuery.of(context).size.height * 0.2,
-                decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  image: new DecorationImage(
-                      fit: BoxFit.cover,
-                      image: new AssetImage(_setImage()) // not working
-                      ),
+      resizeToAvoidBottomInset: false,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(10.0),
+          child: Column(
+            children: <Widget>[
+              Container(
+                child: Container(
+                  height: MediaQuery.of(context).size.height * 0.2,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    image: new DecorationImage(
+                        fit: BoxFit.cover,
+                        image: new AssetImage(_setImage()) // not working
+                        ),
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              height:  MediaQuery.of(context).size.height * 0.01,
-            ),
-            Text(
-              project.projectName,
-              style: TextStyle(fontSize: 20),
-            ),
-            Divider(
-              height: 2,
-              color: Colors.black,
-            ),
-            SizedBox(
-             height:  MediaQuery.of(context).size.height * 0.01,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(6.0),
-                  ),
-                  color: Colors.blueGrey[300],
-                  elevation: 10,
-                  child: Container(
-                    width: MediaQuery.of(context).size.width * 0.43,
-                    height:  MediaQuery.of(context).size.height * 0.07,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text("MP DATE", style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.height * 0.018)),
-                        Text(project.mPDate,
-                            style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.height * 0.017)),
-                      ],
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
+              ),
+              Text(
+                project.projectName,
+                style: TextStyle(fontSize: 20),
+              ),
+              Divider(
+                height: 2,
+                color: Colors.black,
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6.0),
+                    ),
+                    color: Colors.blueGrey[300],
+                    elevation: 10,
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.43,
+                      height: MediaQuery.of(context).size.height * 0.07,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text("MP DATE",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: MediaQuery.of(context).size.height *
+                                      0.018)),
+                          Text(project.mPDate,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: MediaQuery.of(context).size.height *
+                                      0.017)),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                Card(
-                  color: Colors.blueGrey[300],
-                  elevation: 10,
-                  child: Container(
-                    width: MediaQuery.of(context).size.width * 0.43,
-                   
-                    height:  MediaQuery.of(context).size.height * 0.07,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text("İŞLETME", style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.height * 0.018)),
-                        Text(project.source,
-                            style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.height * 0.017)),
-                      ],
+                  Card(
+                    color: Colors.blueGrey[300],
+                    elevation: 10,
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.43,
+                      height: MediaQuery.of(context).size.height * 0.07,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text("İŞLETME",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: MediaQuery.of(context).size.height *
+                                      0.018)),
+                          Text(project.source,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: MediaQuery.of(context).size.height *
+                                      0.017)),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                // Card(
-                //   color: Colors.blueGrey[300],
-                //   elevation: 10,
-                //   child: Container(
-                //     width: 100,
-                //     height: 60,
-                //     child: Column(
-                //       mainAxisAlignment: MainAxisAlignment.center,
-                //       children: <Widget>[
-                //         Text("KAYNAK", style: TextStyle(color: Colors.white)),
-                //         Text("M.ARGE", style: TextStyle(color: Colors.white)),
-                //       ],
-                //     ),
-                //   ),
-                // ),
-              ],
-            ),
-            /* SizedBox(
+                  // Card(
+                  //   color: Colors.blueGrey[300],
+                  //   elevation: 10,
+                  //   child: Container(
+                  //     width: 100,
+                  //     height: 60,
+                  //     child: Column(
+                  //       mainAxisAlignment: MainAxisAlignment.center,
+                  //       children: <Widget>[
+                  //         Text("KAYNAK", style: TextStyle(color: Colors.white)),
+                  //         Text("M.ARGE", style: TextStyle(color: Colors.white)),
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
+                ],
+              ),
+              /* SizedBox(
               height: 10,
             ), */
-            Card(
-              color: Color(0xff95A9C6),
-              elevation: 10,
-              child: Container(
-               
-                width: MediaQuery.of(context).size.width * 0.92,
-                child: Column(
-                  
+              Card(
+                color: Color(0xff95A9C6),
+                elevation: 10,
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.92,
+                  child: Column(
+                    children: <Widget>[
+                      new ListTile(
+                        title: Text('YORUM',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: MediaQuery.of(context).size.height *
+                                    0.018)),
+                        subtitle: Text(project.yorum.toString(),
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: MediaQuery.of(context).size.height *
+                                    0.017)),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    new ListTile(
-                      title: Text(
-                        'YORUM',
-                        style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.height * 0.018)),
-                      subtitle: Text(project.yorum.toString(),style: TextStyle(color: Colors.white,fontSize: MediaQuery.of(context).size.height * 0.017)),
+                    Card(
+                      color: Color(0xff95A9C6),
+                      elevation: 10,
+                      child: Container(
+                        width: MediaQuery.of(context).size.width * 0.28,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => hataDetail(project, 0),
+                                ));
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              children: <Widget>[
+                                Text(
+                                  project.hWBug.toString(),
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize:
+                                          MediaQuery.of(context).size.height *
+                                              0.05),
+                                ),
+                                Text(
+                                  'HW',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize:
+                                          MediaQuery.of(context).size.height *
+                                              0.025),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Card(
+                      color: Color(0xff95A9C6),
+                      elevation: 10,
+                      child: Container(
+                        width: MediaQuery.of(context).size.width * 0.28,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => hataDetail(project, 1),
+                                ));
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              children: <Widget>[
+                                Text(
+                                  project.sWBug.toString(),
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize:
+                                          MediaQuery.of(context).size.height *
+                                              0.05),
+                                ),
+                                Text(
+                                  'SW',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize:
+                                          MediaQuery.of(context).size.height *
+                                              0.025),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Card(
+                      color: Color(0xff95A9C6),
+                      elevation: 10,
+                      child: Container(
+                        width: MediaQuery.of(context).size.width * 0.28,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => hataDetail(project, 2),
+                                ));
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              children: <Widget>[
+                                Text(
+                                  project.fixedBug.toString(),
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize:
+                                          MediaQuery.of(context).size.height *
+                                              0.05),
+                                ),
+                                Text(
+                                  'FIXED',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize:
+                                          MediaQuery.of(context).size.height *
+                                              0.025),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),
               ),
-            ),
-            Container(
-             
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Card(
-                    color: Color(0xff95A9C6),
-                    elevation: 10,
-                    child: Container(
-                      width: MediaQuery.of(context).size.width * 0.28,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => hataDetail(project, 0),
-                              ));
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: <Widget>[
-                              Text(
-                                project.hWBug.toString(),
-                                style:
-                                    TextStyle(color: Colors.white, fontSize: MediaQuery.of(context).size.height * 0.05),
-                              ),
-                              Text(
-                                'HW',
-                                style:
-                                    TextStyle(color: Colors.white,  fontSize: MediaQuery.of(context).size.height * 0.025),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Card(
-                    color: Color(0xff95A9C6),
-                    elevation: 10,
-                    child: Container(
-                      width: MediaQuery.of(context).size.width * 0.28,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => hataDetail(project, 1),
-                              ));
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: <Widget>[
-                              Text(
-                                project.sWBug.toString(),
-                                style:
-                                    TextStyle(color: Colors.white,  fontSize: MediaQuery.of(context).size.height * 0.05),
-                              ),
-                              Text(
-                                'SW',
-                                style:
-                                    TextStyle(color: Colors.white,  fontSize: MediaQuery.of(context).size.height * 0.025),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Card(
-                    color: Color(0xff95A9C6),
-                    elevation: 10,
-                    child: Container(
-                      width: MediaQuery.of(context).size.width * 0.28,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => hataDetail(project, 2),
-                              ));
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: <Widget>[
-                              Text(
-                                project.fixedBug.toString(),
-                                style:
-                                    TextStyle(color: Colors.white, fontSize: MediaQuery.of(context).size.height * 0.05),
-                              ),
-                              Text(
-                                'FIXED',
-                                style:
-                                    TextStyle(color: Colors.white,   fontSize: MediaQuery.of(context).size.height * 0.025),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -708,7 +745,7 @@ class _hataDetailState extends State<hataDetail>
         title: Text('Proje Hata Detayları'),
         centerTitle: true,
         elevation: 10.0,
-       /* actions: <Widget>[
+        /* actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
             onPressed: () async {},
@@ -725,8 +762,8 @@ class _hataDetailState extends State<hataDetail>
                 children: <Widget>[
                   Container(
                     child: Container(
-                    width: MediaQuery.of(context).size.width * 0.4,
-                    height: MediaQuery.of(context).size.width * 0.4,
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      height: MediaQuery.of(context).size.width * 0.4,
                       decoration: BoxDecoration(
                         shape: BoxShape.rectangle,
                         image: new DecorationImage(
@@ -743,8 +780,7 @@ class _hataDetailState extends State<hataDetail>
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: SizedBox(
-                           
-                          width: MediaQuery.of(context).size.width * 0.5,
+                            width: MediaQuery.of(context).size.width * 0.5,
                             height: 40.0,
                             child: AutoSizeText(
                               project.projectName,
@@ -756,11 +792,10 @@ class _hataDetailState extends State<hataDetail>
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: SizedBox(
-                            
-                          width: MediaQuery.of(context).size.width * 0.4,
+                            width: MediaQuery.of(context).size.width * 0.4,
                             height: 30.0,
                             child: AutoSizeText(
-                              "MP Date: " +project.mPDate,
+                              "MP Date: " + project.mPDate,
                               style: TextStyle(fontSize: 20.0),
                               maxLines: 2,
                             ),
@@ -769,11 +804,10 @@ class _hataDetailState extends State<hataDetail>
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: SizedBox(
-                            
-                          width: MediaQuery.of(context).size.width * 0.4,
+                            width: MediaQuery.of(context).size.width * 0.4,
                             height: 30.0,
                             child: AutoSizeText(
-                             "İşletme: "+ project.source,
+                              "İşletme: " + project.source,
                               style: TextStyle(fontSize: 20.0),
                               maxLines: 2,
                             ),

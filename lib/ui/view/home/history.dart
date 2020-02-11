@@ -7,6 +7,8 @@ import 'package:flutterfire/core/services/firebase_service.dart';
 import 'fire_home_view.dart';
 
 class history extends StatelessWidget {
+  int indexWeek = weekOfYear(DateTime.now())+1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,8 +32,8 @@ class history extends StatelessWidget {
       body: Container(
         child: ListView.builder(
             shrinkWrap: true,
-            itemCount: 52,
-            itemBuilder: (BuildContext ctxt, int index) {
+            itemCount:  weekOfYear(DateTime.now()),
+            itemBuilder: (BuildContext ctxt, itemCount) {
               return Container(
                   margin: EdgeInsets.fromLTRB(12, 0, 12, 0),
                   width: 25.0,
@@ -48,7 +50,7 @@ class history extends StatelessWidget {
                           children: <Widget>[
                             Text("WEEK",
                                 style: TextStyle(color: Colors.white, fontSize: MediaQuery.of(context).size.height * 0.025)),
-                            Text((index+1).toString(),
+                            Text((getIndex()).toString(),
                                 style: TextStyle(color: Colors.white, fontSize:  MediaQuery.of(context).size.height * 0.025)),
                             SizedBox(width: MediaQuery.of(context).size.width * 0.1,),
                             FlatButton(
@@ -58,7 +60,7 @@ class history extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                       builder: (context) => historyDetails(index+1),
+                                       builder: (context) => historyDetails(weekOfYear(DateTime.now())- itemCount ),
                                     ));
                               },
                             ),
@@ -72,6 +74,45 @@ class history extends StatelessWidget {
             }),
       ),
     );
+  }
+  int getIndex(){
+    indexWeek = indexWeek-1;
+    return indexWeek;
+  }
+  static int weekOfYear(DateTime date) {
+    DateTime monday = weekStart(date);
+    DateTime first = weekYearStartDate(monday.year);
+
+    int week = 1 + (monday.difference(first).inDays / 7).floor();
+
+    if (week == 53 && DateTime(monday.year, 12, 31).weekday < 4)
+      week = 1;
+    debugPrint(week.toString());
+    return week;
+  }
+
+  static DateTime weekStart(DateTime date) {
+    // This is ugly, but to avoid problems with daylight saving
+    DateTime monday = DateTime.utc(date.year, date.month, date.day);
+    monday = monday.subtract(Duration(days: monday.weekday - 1));
+
+    return monday;
+  }
+
+  static DateTime weekEnd(DateTime date) {
+    // This is ugly, but to avoid problems with daylight saving
+    // Set the last microsecond to really be the end of the week
+    DateTime sunday = DateTime.utc(date.year, date.month, date.day, 23, 59, 59, 999, 999999);
+    sunday = sunday.add(Duration(days: 7 - sunday.weekday));
+
+    return sunday;
+  }
+
+  static DateTime weekYearStartDate(int year) {
+    final firstDayOfYear = DateTime.utc(year, 1, 1);
+    final dayOfWeek = firstDayOfYear.weekday;
+
+    return firstDayOfYear.add(Duration(days: (dayOfWeek <= DateTime.thursday ? 1 : 8) - dayOfWeek));
   }
 }
 
@@ -170,4 +211,7 @@ Widget get _waitingWidget => Center(child: CircularProgressIndicator());
       ),
     );
   }
+
+
+
 }
