@@ -11,6 +11,7 @@ class Projects {
   String mPDate;
   String week;
   String yorum;
+  String updateTime;
 
   Projects(
       {this.fixedBug,

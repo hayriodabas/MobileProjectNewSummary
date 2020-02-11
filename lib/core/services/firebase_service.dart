@@ -72,6 +72,7 @@ class FirebaseService {
     // final response = await http.get("$FIREBASE_URL/users.json");
     final response = await http.get("$FIREBASE_URL/projectMap.json");
 
+    final response2 = await http.get("$FIREBASE_URL/UpdateTime.json");
 
     switch (response.statusCode) {
       case HttpStatus.ok:
@@ -82,10 +83,11 @@ class FirebaseService {
           
           Projects project = Projects.fromJson(value);
           project.key = key;
+          project.updateTime= response2.body;
           if(project.week== weekOfYear(DateTime.now()).toString()){
             String temp = value.toString();
              debugPrint(temp); 
-           
+            
             projectList.add(project);
 
           }
@@ -152,6 +154,7 @@ class FirebaseService {
         return Future.error(response.statusCode);
     }
   }
+
 
 //list
   Future<List<User>> getUsers() async {

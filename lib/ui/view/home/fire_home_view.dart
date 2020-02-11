@@ -680,8 +680,8 @@ class projectDetail extends StatelessWidget {
               ),
             ),
             Text(
-              "Hataların son güncellenme zamanı : 21.01.2020  19:03",
-              style: TextStyle(fontSize: 16, color: Colors.blueGrey),
+              "Hataların güncellenme zamanı :" +  project.updateTime.toString(),
+              style: TextStyle(fontSize: 14, color: Colors.blueGrey),
             ),
             Divider(
               height: 2,
