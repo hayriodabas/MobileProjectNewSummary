@@ -1,6 +1,7 @@
 class Projects {
   Bugs bugs;
   int fixedBug;
+  int rcBug;
   int hWBug;
   String projectName;
   int sWBug;
@@ -10,11 +11,13 @@ class Projects {
   String productType;
   String mPDate;
   String week;
+  String year;
   String yorum;
   String updateTime;
 
   Projects(
       {this.fixedBug,
+      this.rcBug,
       this.yorum,
       this.hWBug,
       this.projectName,
@@ -31,6 +34,13 @@ class Projects {
     bugs = json['Bugs'] != null ? new Bugs.fromJson(json['Bugs']) : null;
     key = json['key'];
     fixedBug = int.parse(json['FixedBug']);
+    if(json.containsKey('RCBugCount')){
+      rcBug= int.parse(json['RCBugCount']);
+    }
+    else{
+      rcBug = 0;
+    }
+    //rcBug = int.parse(json.containsKey('RCBugCount') == false ? json['RCBugCount'] : 0);
     hWBug = int.parse(json['HWBug']);
     projectName = json['ProjectName'];
     sWBug = int.parse(json['SWBug']);
@@ -38,7 +48,15 @@ class Projects {
     source = json['Source'];
     productType = json['ProductType'];
     mPDate = json['MPDate'];
-    week = json['Week'];
+    String weekAndYear = json['Week'];
+    if(weekAndYear.contains(".")) {
+      List<String> splitList = weekAndYear.split(".");
+      week= splitList[0].toString();
+      year= splitList[1].toString();
+    }else
+    {
+      week = json['Week'];
+    }
     yorum = json['Yorum'];
   }
 
@@ -49,6 +67,7 @@ class Projects {
     }
     data['key'] = this.key;
     data['FixedBug'] = this.fixedBug;
+    data['RCBugCount'] = this.rcBug;
     data['HWBug'] = this.hWBug;
     data['ProjectName'] = this.projectName;
     data['SWBug'] = this.sWBug;
@@ -66,7 +85,8 @@ class Bugs {
   List<HWBug> hWBug;
   List<SWBug> sWBug;
   List<FixedBug> fixedBug;
-  Bugs({this.hWBug, this.sWBug,this.fixedBug});
+  List<RCBug> rcBug;
+  Bugs({this.hWBug, this.sWBug,this.fixedBug, this.rcBug});
 
   Bugs.fromJson(Map<String, dynamic> json) {
     if (json['HWBug'] != null) {
@@ -92,6 +112,13 @@ class Bugs {
       });
     }else{
        fixedBug = new List<FixedBug>();
+    } if (json['RCBug'] != null) {
+      rcBug = new List<RCBug>();
+      json['RCBug'].forEach((v) {
+        rcBug.add(new RCBug.fromJson(v));
+      });
+    }else{
+       rcBug = new List<RCBug>();
     }
   }
 
@@ -105,6 +132,9 @@ class Bugs {
     }
     if (this.fixedBug != null) {
       data['FixedBug'] = this.fixedBug.map((v) => v.toJson()).toList();
+    }
+    if (this.rcBug != null) {
+      data['RCBug'] = this.rcBug.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -148,6 +178,21 @@ class FixedBug {
   FixedBug({this.bugName});
 
   FixedBug.fromJson(Map<String, dynamic> json) {
+    bugName = json['BugName'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['BugName'] = this.bugName;
+    return data;
+  }
+}
+class RCBug {
+  String bugName;
+
+  RCBug({this.bugName});
+
+  RCBug.fromJson(Map<String, dynamic> json) {
     bugName = json['BugName'];
   }
 

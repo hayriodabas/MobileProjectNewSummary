@@ -20,8 +20,15 @@ dependencies:
   flutter:
     sdk: flutter
 
-  http: 0.12.0+2
-
+  http: any
+  scoped_model: 1.0.1
+  flutter_gallery_assets: 0.1.8
+  url_launcher: ^5.0.3
+  intl: ^0.16.0
+  syncfusion_flutter_calendar: ^17.4.46-beta
+  syncfusion_flutter_charts: ^17.4.46
+  syncfusion_flutter_gauges: ^17.4.46-beta
+  syncfusion_flutter_core: ^17.4.46
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -66,6 +73,9 @@ flutter:
   - assets/images/kurutucu2.png
   - assets/images/ocak1.png
   - assets/images/ocak2.png
+  - assets/images/smarthome1.png
+  - assets/images/smarthome2.png
+
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
