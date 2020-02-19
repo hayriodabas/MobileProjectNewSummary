@@ -1,5 +1,5 @@
 import 'dart:math';
-
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire/core/model/projects.dart';
 import 'package:flutterfire/core/model/student.dart';
@@ -439,7 +439,7 @@ class projectDetail extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(0.0,0.0,0.0,10.0),
+          padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 10.0),
           child: Column(
             children: <Widget>[
               Container(
@@ -474,29 +474,28 @@ class projectDetail extends StatelessWidget {
                     color: Colors.blueGrey[300],
                     elevation: 10,
                     child: Padding(
-                      padding: const EdgeInsets.fromLTRB(0.0,10.0, 0.0,10.0),
+                      padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
                       child: Container(
                         width: MediaQuery.of(context).size.width * 0.456,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                              AutoSizeText(
-                               "MP DATE",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: MediaQuery.of(context).size.height *
-                                        0.017),
-                                maxLines: 2,
-                              ),
                             AutoSizeText(
-                               project.mPDate,
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: MediaQuery.of(context).size.height *
-                                        0.017),
-                                maxLines: 2,
-                              ),    
-                            
+                              "MP DATE",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: MediaQuery.of(context).size.height *
+                                      0.017),
+                              maxLines: 2,
+                            ),
+                            AutoSizeText(
+                              project.mPDate,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: MediaQuery.of(context).size.height *
+                                      0.017),
+                              maxLines: 2,
+                            ),
                           ],
                         ),
                       ),
@@ -508,9 +507,8 @@ class projectDetail extends StatelessWidget {
                     ),
                     color: Colors.blueGrey[300],
                     elevation: 10,
-                    
                     child: Padding(
-                      padding: const EdgeInsets.fromLTRB(0.0,10.0, 0.0,10.0),
+                      padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
                       child: Container(
                         width: MediaQuery.of(context).size.width * 0.456,
                         child: Column(
@@ -519,13 +517,15 @@ class projectDetail extends StatelessWidget {
                             Text("İŞLETME",
                                 style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: MediaQuery.of(context).size.height *
-                                        0.018)),
+                                    fontSize:
+                                        MediaQuery.of(context).size.height *
+                                            0.018)),
                             Text(project.source,
                                 style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: MediaQuery.of(context).size.height *
-                                        0.017)),
+                                    fontSize:
+                                        MediaQuery.of(context).size.height *
+                                            0.017)),
                           ],
                         ),
                       ),
@@ -552,8 +552,9 @@ class projectDetail extends StatelessWidget {
               /* SizedBox(
               height: 10,
             ), */
+
               Padding(
-                padding: const EdgeInsets.fromLTRB(0.0,5.0,0.0,0.0),
+                padding: const EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 0.0),
                 child: Card(
                   color: Color(0xff95A9C6),
                   elevation: 10,
@@ -579,7 +580,14 @@ class projectDetail extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(10.0,5.0,10.0,5.0),
+                padding: const EdgeInsets.fromLTRB(14, 10, 0, 0),
+                child: Text(
+                  "HardWare",
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 5.0),
                 child: Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -594,7 +602,8 @@ class projectDetail extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => hataDetail(project, 0),
+                                    builder: (context) =>
+                                        hataDetail(project, 0),
                                   ));
                             },
                             child: Padding(
@@ -603,22 +612,17 @@ class projectDetail extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
                                   AutoSizeText(
-                              project.hWBug.toString(),
-                                style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize:
-                                            40),
-                                maxLines: 2,
-                              ),
-                                  
+                                    project.hWBug.toString(),
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 40),
+                                    maxLines: 2,
+                                  ),
                                   AutoSizeText(
-                               "HW",
-                                style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize:20
-                                           ),
-                                maxLines: 2,
-                              ),
+                                    "OPEN",
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 20),
+                                    maxLines: 2,
+                                  ),
                                 ],
                               ),
                             ),
@@ -635,7 +639,8 @@ class projectDetail extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => hataDetail(project, 0),
+                                    builder: (context) =>
+                                        hataDetail(project, 0),
                                   ));
                             },
                             child: Padding(
@@ -652,7 +657,7 @@ class projectDetail extends StatelessWidget {
                                                 0.05),
                                   ),
                                   Text(
-                                    'HW',
+                                    'FIXED',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize:
@@ -675,7 +680,8 @@ class projectDetail extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => hataDetail(project, 1),
+                                    builder: (context) =>
+                                        hataDetail(project, 1),
                                   ));
                             },
                             child: Padding(
@@ -692,7 +698,7 @@ class projectDetail extends StatelessWidget {
                                                 0.05),
                                   ),
                                   Text(
-                                    'SW',
+                                    'RC',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize:
@@ -710,7 +716,12 @@ class projectDetail extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(10.0,0.0,10.0,6.0),
+                padding: const EdgeInsets.fromLTRB(14, 10, 0, 0),
+                child: Text("SoftWare",
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 6.0),
                 child: Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -725,7 +736,8 @@ class projectDetail extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => hataDetail(project, 2),
+                                    builder: (context) =>
+                                        hataDetail(project, 2),
                                   ));
                             },
                             child: Padding(
@@ -741,7 +753,7 @@ class projectDetail extends StatelessWidget {
                                                 0.05),
                                   ),
                                   Text(
-                                    'FIXED (HW+SW)',
+                                    'OPEN',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize:
@@ -764,7 +776,8 @@ class projectDetail extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => hataDetail(project, 3),
+                                    builder: (context) =>
+                                        hataDetail(project, 3),
                                   ));
                             },
                             child: Padding(
@@ -780,7 +793,7 @@ class projectDetail extends StatelessWidget {
                                                 0.05),
                                   ),
                                   Text(
-                                    'RC (HW+SW)',
+                                    'FIXED',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize:
@@ -803,7 +816,8 @@ class projectDetail extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => hataDetail(project, 3),
+                                    builder: (context) =>
+                                        hataDetail(project, 3),
                                   ));
                             },
                             child: Padding(
@@ -819,13 +833,13 @@ class projectDetail extends StatelessWidget {
                                                 0.05),
                                   ),
                                   Text(
-                                    'RC (HW+SW)',
+                                    'RC',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize:
                                             MediaQuery.of(context).size.height *
                                                 0.025),
-                                  )
+                                  ),
                                 ],
                               ),
                             ),
@@ -844,6 +858,32 @@ class projectDetail extends StatelessWidget {
                     project.updateTime.toString(),
                 style: TextStyle(fontSize: 14, color: Colors.blueGrey),
               ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20.0, 10.0, 10.0, 10.0),
+                child: Row(
+                  children: <Widget>[
+                    InkWell(
+                      onTap: () {
+                        Fluttertoast.showToast(
+                            msg:
+                                "Ne Mesaj Yazdırmak İstersek O Mesajı Buraya Yazdırabiliriz...",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.CENTER,
+                            timeInSecForIos: 3,
+                            backgroundColor: Colors.red[300],
+                            textColor: Colors.white,
+                            fontSize: 16.0);
+                      },
+                      child: Image.asset(
+                        "assets/images/icons-05.png",
+                        width: 25.0,
+                        height: 25.0,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         ),
@@ -875,7 +915,7 @@ class _hataDetailState extends State<hataDetail>
   @override
   void initState() {
     super.initState();
-    _controller = TabController(length: 4, vsync: this);
+    _controller = TabController(length: 6, vsync: this);
     _controller.animateTo(selected);
   }
 
@@ -929,7 +969,7 @@ class _hataDetailState extends State<hataDetail>
         children: <Widget>[
           Container(
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(0.0,0.0,8.0,0.0),
+              padding: const EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 0.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -996,29 +1036,134 @@ class _hataDetailState extends State<hataDetail>
           Container(
             decoration: BoxDecoration(color: Theme.of(context).primaryColor),
             child: TabBar(
+              isScrollable: true,
               controller: _controller,
               tabs: [
-                Tab(
-                  icon: const Icon(Icons.error),
-                  text: 'HW HATA',
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          width: 59,
+                          alignment: Alignment.center,
+                          child: Icon(
+                            Icons.info_outline,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 8.0,
+                        ),
+                        Text("HW HATA")
+                      ],
+                    ),
+                  ),
                 ),
-                Tab(
-                  icon: const Icon(Icons.error),
-                  text: 'SW HATA',
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          width: 59,
+                          alignment: Alignment.center,
+                          child: Icon(
+                            Icons.info_outline,
+                          ),
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.016,
+                        ),
+                        Text("SW HATA")
+                      ],
+                    ),
+                  ),
                 ),
-                Tab(
-                  icon: const Icon(Icons.error),
-                  text: 'FIXED',
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          width: 59,
+                          alignment: Alignment.center,
+                          child: Icon(
+                            Icons.info_outline,
+                          ),
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.016,
+                        ),
+                        Text("FIXED")
+                      ],
+                    ),
+                  ),
                 ),
-                Tab(
-                  icon: const Icon(Icons.error),
-                  text: 'RC',
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          width: 59,
+                          alignment: Alignment.center,
+                          child: Icon(
+                            Icons.info_outline,
+                          ),
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.016,
+                        ),
+                        Text("RC")
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          width: 59,
+                          alignment: Alignment.center,
+                          child: Icon(
+                            Icons.info_outline,
+                          ),
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.016,
+                        ),
+                        Text("DENEME1")
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          width: 59,
+                          alignment: Alignment.center,
+                          child: Icon(
+                            Icons.info_outline,
+                          ),
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.016,
+                        ),
+                        Text("DENEME2")
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
           ),
           Container(
-            height: MediaQuery.of(context).size.height * 0.55,
+            height: MediaQuery.of(context).size.height * 0.61,
             child: Container(
               child: TabBarView(
                 controller: _controller,
@@ -1056,6 +1201,30 @@ class _hataDetailState extends State<hataDetail>
                       itemBuilder: (context, index) {
                         return ListTile(
                           title: Text(project.bugs.fixedBug[index].bugName),
+                        );
+                      },
+                    ),
+                  ),
+                  Card(
+                    child: ListView.separated(
+                      itemCount: project.bugs.rcBug.length,
+                      separatorBuilder: (context, index) =>
+                          Divider(height: 1.0, color: Colors.grey),
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          title: Text(project.bugs.rcBug[index].bugName),
+                        );
+                      },
+                    ),
+                  ),
+                  Card(
+                    child: ListView.separated(
+                      itemCount: project.bugs.rcBug.length,
+                      separatorBuilder: (context, index) =>
+                          Divider(height: 1.0, color: Colors.grey),
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          title: Text(project.bugs.rcBug[index].bugName),
                         );
                       },
                     ),
