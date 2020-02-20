@@ -471,7 +471,7 @@ class projectDetail extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6.0),
                     ),
-                    color: Colors.blueGrey[300],
+                    color: Color(0xffE4EBF7),
                     elevation: 10,
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
@@ -483,7 +483,7 @@ class projectDetail extends StatelessWidget {
                             AutoSizeText(
                               "MP DATE",
                               style: TextStyle(
-                                  color: Colors.white,
+                                  color: Colors.black,
                                   fontSize: MediaQuery.of(context).size.height *
                                       0.017),
                               maxLines: 2,
@@ -491,7 +491,7 @@ class projectDetail extends StatelessWidget {
                             AutoSizeText(
                               project.mPDate,
                               style: TextStyle(
-                                  color: Colors.white,
+                                  color: Colors.black,
                                   fontSize: MediaQuery.of(context).size.height *
                                       0.017),
                               maxLines: 2,
@@ -505,7 +505,7 @@ class projectDetail extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6.0),
                     ),
-                    color: Colors.blueGrey[300],
+                    color: Color(0xffE4EBF7),
                     elevation: 10,
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
@@ -516,13 +516,13 @@ class projectDetail extends StatelessWidget {
                           children: <Widget>[
                             Text("İŞLETME",
                                 style: TextStyle(
-                                    color: Colors.white,
+                                    color: Colors.black,
                                     fontSize:
                                         MediaQuery.of(context).size.height *
-                                            0.018)),
+                                            0.017)),
                             Text(project.source,
                                 style: TextStyle(
-                                    color: Colors.white,
+                                    color: Colors.black,
                                     fontSize:
                                         MediaQuery.of(context).size.height *
                                             0.017)),
@@ -556,35 +556,65 @@ class projectDetail extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 0.0),
                 child: Card(
-                  color: Color(0xff95A9C6),
+                  color: Color(0xffBCCEEB),
                   elevation: 10,
                   child: Container(
                     width: MediaQuery.of(context).size.width * 0.93,
                     child: Column(
                       children: <Widget>[
-                        ListTile(
-                          title: Text('YORUM',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: MediaQuery.of(context).size.height *
-                                      0.018)),
-                          subtitle: Text(project.yorum.toString(),
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: MediaQuery.of(context).size.height *
-                                      0.017)),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 8.0),
+                          child: ListTile(
+                            title: Text('YORUM',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: 'Tahoma',
+                                    fontSize: MediaQuery.of(context).size.height *
+                                        0.018)),
+                            subtitle: Text(project.yorum.toString(),
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: MediaQuery.of(context).size.height *
+                                        0.017)),
+                          ),
                         ),
                       ],
                     ),
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(14, 10, 0, 0),
-                child: Text(
-                  "HardWare",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(35.0, 20.0, 0.0, 0.0),
+                    child: Text(
+                      "HardWare",
+                      style: TextStyle(
+                        fontSize: 21,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(8.0, 20.0, 10.0, 0.0),
+                    child: Row(
+                      children: <Widget>[
+                        InkWell(
+                          onTap: () {
+                            showAlertDialog(context);
+                          },
+                          child: Image.asset(
+                            "assets/images/icons-05.png",
+                            width: 20.0,
+                            height: 20.0,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 5.0),
@@ -617,11 +647,13 @@ class projectDetail extends StatelessWidget {
                                         color: Colors.white, fontSize: 40),
                                     maxLines: 2,
                                   ),
-                                  AutoSizeText(
-                                    "OPEN",
+                                  Text(
+                                    'OPEN',
                                     style: TextStyle(
-                                        color: Colors.white, fontSize: 20),
-                                    maxLines: 2,
+                                        color: Colors.white,
+                                        fontSize:
+                                            MediaQuery.of(context).size.height *
+                                                0.02),
                                   ),
                                 ],
                               ),
@@ -662,8 +694,8 @@ class projectDetail extends StatelessWidget {
                                         color: Colors.white,
                                         fontSize:
                                             MediaQuery.of(context).size.height *
-                                                0.025),
-                                  )
+                                                0.02),
+                                  ),
                                 ],
                               ),
                             ),
@@ -703,7 +735,7 @@ class projectDetail extends StatelessWidget {
                                         color: Colors.white,
                                         fontSize:
                                             MediaQuery.of(context).size.height *
-                                                0.025),
+                                                0.02),
                                   )
                                 ],
                               ),
@@ -715,10 +747,38 @@ class projectDetail extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(14, 10, 0, 0),
-                child: Text("SoftWare",
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(35.0, 10.0, 0.0, 0.0),
+                    child: Text(
+                      "SoftWare",
+                      style: TextStyle(
+                        fontSize: 21,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(8.0, 10.0, 10.0, 0.0),
+                    child: Row(
+                      children: <Widget>[
+                        InkWell(
+                          onTap: () {
+                            showAlertDialog(context);
+                          },
+                          child: Image.asset(
+                            "assets/images/icons-05.png",
+                            width: 20.0,
+                            height: 20.0,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 6.0),
@@ -758,7 +818,7 @@ class projectDetail extends StatelessWidget {
                                         color: Colors.white,
                                         fontSize:
                                             MediaQuery.of(context).size.height *
-                                                0.025),
+                                                0.02),
                                   )
                                 ],
                               ),
@@ -798,7 +858,7 @@ class projectDetail extends StatelessWidget {
                                         color: Colors.white,
                                         fontSize:
                                             MediaQuery.of(context).size.height *
-                                                0.025),
+                                                0.02),
                                   )
                                 ],
                               ),
@@ -838,7 +898,7 @@ class projectDetail extends StatelessWidget {
                                         color: Colors.white,
                                         fontSize:
                                             MediaQuery.of(context).size.height *
-                                                0.025),
+                                                0.02),
                                   ),
                                 ],
                               ),
@@ -858,36 +918,54 @@ class projectDetail extends StatelessWidget {
                     project.updateTime.toString(),
                 style: TextStyle(fontSize: 14, color: Colors.blueGrey),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20.0, 10.0, 10.0, 10.0),
-                child: Row(
-                  children: <Widget>[
-                    InkWell(
-                      onTap: () {
-                        Fluttertoast.showToast(
-                            msg:
-                                "Ne Mesaj Yazdırmak İstersek O Mesajı Buraya Yazdırabiliriz...",
-                            toastLength: Toast.LENGTH_SHORT,
-                            gravity: ToastGravity.CENTER,
-                            timeInSecForIos: 3,
-                            backgroundColor: Colors.red[300],
-                            textColor: Colors.white,
-                            fontSize: 16.0);
-                      },
-                      child: Image.asset(
-                        "assets/images/icons-05.png",
-                        width: 25.0,
-                        height: 25.0,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ],
-                ),
-              )
             ],
           ),
         ),
       ),
+    );
+  }
+
+  showAlertDialog(BuildContext context) {
+    // set up the button
+    Widget okButton = FlatButton(
+      child: Text("Tamam"),
+      onPressed: () {
+        Navigator.pop(context);
+      },
+    );
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text("Hata Kategorileri"),
+      content: Column(
+        children: <Widget>[
+          Text(
+            "Uygulamada yalnızca High ve Showstopper hatalar gösterilmektedir",
+            style: TextStyle(fontSize: 12, color: Colors.red),
+          ),
+          Text(
+            "OPEN: Kapatılmamış Hatalar",
+            style: TextStyle(fontSize: 12),
+          ),
+          Text(
+            "FIXED: Tasarım ekibinin çözdüğü, test ekibinin kontrol etmesi gereken, Açık Hatalar",
+            style: TextStyle(fontSize: 12),
+          ),
+          Text(
+            "RC: Seriye çıktıktan sonra çözülmesi konusunda anlaşılan, Açık Hatalar",
+            style: TextStyle(fontSize: 12),
+          ),
+        ],
+      ),
+      actions: [
+        okButton,
+      ],
+    );
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
     );
   }
 }
@@ -1045,7 +1123,7 @@ class _hataDetailState extends State<hataDetail>
                     child: Column(
                       children: <Widget>[
                         Container(
-                          width: 59,
+                          width: 70,
                           alignment: Alignment.center,
                           child: Icon(
                             Icons.info_outline,
@@ -1054,7 +1132,7 @@ class _hataDetailState extends State<hataDetail>
                         SizedBox(
                           height: 8.0,
                         ),
-                        Text("HW HATA")
+                        Text("HW OPEN")
                       ],
                     ),
                   ),
@@ -1065,16 +1143,16 @@ class _hataDetailState extends State<hataDetail>
                     child: Column(
                       children: <Widget>[
                         Container(
-                          width: 59,
+                          width: 70,
                           alignment: Alignment.center,
                           child: Icon(
                             Icons.info_outline,
                           ),
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.016,
+                          height: 8.0,
                         ),
-                        Text("SW HATA")
+                        Text("HW FIXED")
                       ],
                     ),
                   ),
@@ -1085,16 +1163,16 @@ class _hataDetailState extends State<hataDetail>
                     child: Column(
                       children: <Widget>[
                         Container(
-                          width: 59,
+                          width: 70,
                           alignment: Alignment.center,
                           child: Icon(
                             Icons.info_outline,
                           ),
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.016,
+                          height: 8.0,
                         ),
-                        Text("FIXED")
+                        Text("HW RC")
                       ],
                     ),
                   ),
@@ -1105,16 +1183,16 @@ class _hataDetailState extends State<hataDetail>
                     child: Column(
                       children: <Widget>[
                         Container(
-                          width: 59,
+                          width: 70,
                           alignment: Alignment.center,
                           child: Icon(
                             Icons.info_outline,
                           ),
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.016,
+                          height: 8.0,
                         ),
-                        Text("RC")
+                        Text("SW OPEN")
                       ],
                     ),
                   ),
@@ -1125,16 +1203,16 @@ class _hataDetailState extends State<hataDetail>
                     child: Column(
                       children: <Widget>[
                         Container(
-                          width: 59,
+                          width: 70,
                           alignment: Alignment.center,
                           child: Icon(
                             Icons.info_outline,
                           ),
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.016,
+                          height: 8.0,
                         ),
-                        Text("DENEME1")
+                        Text("SW FIXED")
                       ],
                     ),
                   ),
@@ -1145,16 +1223,16 @@ class _hataDetailState extends State<hataDetail>
                     child: Column(
                       children: <Widget>[
                         Container(
-                          width: 59,
+                          width: 70,
                           alignment: Alignment.center,
                           child: Icon(
                             Icons.info_outline,
                           ),
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.016,
+                          height: 8.0,
                         ),
-                        Text("DENEME2")
+                        Text("SW RC")
                       ],
                     ),
                   ),

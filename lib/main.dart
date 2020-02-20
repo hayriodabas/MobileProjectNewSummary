@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Aquila Lite',
         theme: ThemeData(
-          primarySwatch: MaterialColor(0xFF363C44, color),
+          primarySwatch: MaterialColor(0xFF363C44, color),fontFamily: 'Tahoma',
         ),
         home: App());
   }
