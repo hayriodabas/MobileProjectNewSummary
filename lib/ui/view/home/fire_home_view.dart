@@ -563,19 +563,22 @@ class projectDetail extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         Padding(
-                          padding: const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 8.0),
+                          padding:
+                              const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 8.0),
                           child: ListTile(
                             title: Text('YORUM',
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontFamily: 'Tahoma',
-                                    fontSize: MediaQuery.of(context).size.height *
-                                        0.018)),
+                                    fontSize:
+                                        MediaQuery.of(context).size.height *
+                                            0.018)),
                             subtitle: Text(project.yorum.toString(),
                                 style: TextStyle(
                                     color: Colors.black,
-                                    fontSize: MediaQuery.of(context).size.height *
-                                        0.017)),
+                                    fontSize:
+                                        MediaQuery.of(context).size.height *
+                                            0.017)),
                           ),
                         ),
                       ],
@@ -925,7 +928,7 @@ class projectDetail extends StatelessWidget {
     );
   }
 
-  showAlertDialog(BuildContext context) {
+showAlertDialog(BuildContext context) {
     // set up the button
     Widget okButton = FlatButton(
       child: Text("Tamam"),
@@ -936,25 +939,38 @@ class projectDetail extends StatelessWidget {
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
       title: Text("Hata Kategorileri"),
-      content: Column(
-        children: <Widget>[
-          Text(
-            "Uygulamada yalnızca High ve Showstopper hatalar gösterilmektedir",
-            style: TextStyle(fontSize: 12, color: Colors.red),
-          ),
-          Text(
-            "OPEN: Kapatılmamış Hatalar",
-            style: TextStyle(fontSize: 12),
-          ),
-          Text(
-            "FIXED: Tasarım ekibinin çözdüğü, test ekibinin kontrol etmesi gereken, Açık Hatalar",
-            style: TextStyle(fontSize: 12),
-          ),
-          Text(
-            "RC: Seriye çıktıktan sonra çözülmesi konusunda anlaşılan, Açık Hatalar",
-            style: TextStyle(fontSize: 12),
-          ),
-        ],
+      content: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Text(
+              "Uygulamada yalnızca High ve Showstopper hatalar gösterilmektedir",
+              style: TextStyle(fontSize: 12, color: Colors.red),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              "OPEN: Kapatılmamış Hatalar",
+              style: TextStyle(fontSize: 12),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              "FIXED: Tasarım ekibinin çözdüğü, test ekibinin kontrol etmesi gereken, Açık Hatalar",
+              style: TextStyle(fontSize: 12),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              "RC: Seriye çıktıktan sonra çözülmesi konusunda anlaşılan, Açık Hatalar",
+              style: TextStyle(fontSize: 12),
+            ),
+          ],
+        ),
       ),
       actions: [
         okButton,
