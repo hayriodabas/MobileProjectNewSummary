@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as prefix0;
 import 'package:flutterfire/core/model/projects.dart';
-
 import 'package:flutterfire/core/services/firebase_service.dart';
-
 import 'fire_home_view.dart';
 
 class history extends StatefulWidget {
@@ -16,8 +14,8 @@ class history extends StatefulWidget {
 class historyState extends State<history> {
   void _incrementCounter() {
     setState(() {
-    indexWeek = weekOfYear(DateTime.now()) + 1;
-    indexWeekASC = 0;
+      indexWeek = weekOfYear(DateTime.now()) + 1;
+      indexWeekASC = 0;
 
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
@@ -74,44 +72,54 @@ class historyState extends State<history> {
             return Container(
               margin: EdgeInsets.fromLTRB(12, 0, 12, 0),
               width: 25.0,
-              child: Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15.0),
-                ),
-                color: Color(0xff95A9C6),
-                elevation: 10,
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          historyDetails(getIndexForRouting(itemCount)),
+                    ),
+                  );
+                },
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ButtonTheme.bar(
-                    child: ButtonBar(
-                      alignment: MainAxisAlignment.spaceAround,
-                      children: <Widget>[
-                        Text("WEEK",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: MediaQuery.of(context).size.height *
-                                    0.025)),
-                        Text((getIndex()).toString(),
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: MediaQuery.of(context).size.height *
-                                    0.025)),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.1,
+                  padding: const EdgeInsets.only(bottom: 3.0, top:3.0,),
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    color: Color(0xff95A9C6),
+                    elevation: 10,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ButtonTheme.bar(
+                        child: ButtonBar(
+                          alignment: MainAxisAlignment.spaceAround,
+                          children: <Widget>[
+                            Text("WEEK",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: MediaQuery.of(context).size.height *
+                                        0.025)),
+                            Text((getIndex()).toString(),
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: MediaQuery.of(context).size.height *
+                                        0.025)),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.1,
+                            ),
+                            Text("Geçmiş Detayları",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: MediaQuery.of(context).size.height *
+                                        0.020)),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.04,
+                            ),
+                          ],
                         ),
-                        FlatButton(
-                          child: const Text('Geçmiş Detayları>',
-                              style: TextStyle(color: Colors.white)),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => historyDetails(
-                                      getIndexForRouting(itemCount)),
-                                ));
-                          },
-                        ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
@@ -125,12 +133,12 @@ class historyState extends State<history> {
   int getIndex() {
     if (indexWeek >= weekOfYear(DateTime.now()) + 1) {
       indexWeek = weekOfYear(DateTime.now()) + 1;
-    }else if(indexWeek < 0){
+    } else if (indexWeek < 0) {
       indexWeek = weekOfYear(DateTime.now()) + 1;
     }
     if (indexWeekASC <= 0) {
       indexWeekASC = 0;
-    }else if(indexWeekASC > weekOfYear(DateTime.now()) + 1){
+    } else if (indexWeekASC > weekOfYear(DateTime.now()) + 1) {
       indexWeekASC = 0;
     }
     if (ascOrdesc) {
@@ -141,7 +149,6 @@ class historyState extends State<history> {
   }
 
   int getIndexForRouting(itemCount) {
-    
     if (ascOrdesc) {
       return getIndexForRoutingDESC(itemCount);
     } else {
@@ -150,22 +157,20 @@ class historyState extends State<history> {
   }
 
   int getIndexDESC() {
-
-
-    indexWeek = indexWeek - 1;    
-    if(indexWeek==1){
-      indexWeek =  weekOfYear(DateTime.now()) + 1;
+    indexWeek = indexWeek - 1;
+    if (indexWeek == 1) {
+      indexWeek = weekOfYear(DateTime.now()) + 1;
       return 1;
-    }else
+    } else
       return indexWeek;
   }
 
   int getIndexASC() {
     indexWeekASC = indexWeekASC + 1;
-    if(indexWeekASC==weekOfYear(DateTime.now()) ){
-      indexWeekASC =  0;
-      return weekOfYear(DateTime.now()) ;
-    }else
+    if (indexWeekASC == weekOfYear(DateTime.now())) {
+      indexWeekASC = 0;
+      return weekOfYear(DateTime.now());
+    } else
       return indexWeekASC;
   }
 
@@ -215,9 +220,6 @@ class historyState extends State<history> {
   }
 }
 
-
-
-
 class historyDetails extends StatefulWidget {
   int index1;
   historyDetails(data) : this.index1 = data;
@@ -255,7 +257,7 @@ class _historyDetailsState extends State<historyDetails> {
             return IconButton(
               icon: const Icon(Icons.arrow_back),
               onPressed: () async {
-                index1=0;
+                index1 = 0;
                 Navigator.pop(context);
               },
               tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
