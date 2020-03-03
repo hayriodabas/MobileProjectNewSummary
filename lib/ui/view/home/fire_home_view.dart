@@ -644,47 +644,8 @@ class projectDetail extends StatelessWidget {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
-                                  AutoSizeText(
-                                    project.hWBug.toString(),
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 40),
-                                    maxLines: 2,
-                                  ),
                                   Text(
-                                    'OPEN',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize:
-                                            MediaQuery.of(context).size.height *
-                                                0.02),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Card(
-                        color: Color(0xff95A9C6),
-                        elevation: 10,
-                        child: Container(
-                          width: MediaQuery.of(context).size.width * 0.29,
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        hataDetail(project, 0),
-                                  ));
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Text(
-                                    project.hWBug.toString(),
+                                    project.bugs.hWBug.length.toString(),
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize:
@@ -692,7 +653,7 @@ class projectDetail extends StatelessWidget {
                                                 0.05),
                                   ),
                                   Text(
-                                    'FIXED',
+                                    'OPEN',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize:
@@ -725,7 +686,48 @@ class projectDetail extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
                                   Text(
-                                    project.sWBug.toString(),
+                                    project.bugs.fixedBugHW.length.toString(),
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize:
+                                            MediaQuery.of(context).size.height *
+                                                0.05),
+                                  ),
+                                  Text(
+                                    'FIXED',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize:
+                                            MediaQuery.of(context).size.height *
+                                                0.02),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Card(
+                        color: Color(0xff95A9C6),
+                        elevation: 10,
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.29,
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        hataDetail(project, 2),
+                                  ));
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    project.bugs.rcBugHW.length.toString(),
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize:
@@ -800,7 +802,7 @@ class projectDetail extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) =>
-                                        hataDetail(project, 2),
+                                        hataDetail(project, 3),
                                   ));
                             },
                             child: Padding(
@@ -808,7 +810,7 @@ class projectDetail extends StatelessWidget {
                               child: Column(
                                 children: <Widget>[
                                   Text(
-                                    project.fixedBug.toString(),
+                                    project.bugs.sWBug.length.toString(),
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize:
@@ -840,7 +842,7 @@ class projectDetail extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) =>
-                                        hataDetail(project, 3),
+                                        hataDetail(project, 4),
                                   ));
                             },
                             child: Padding(
@@ -848,7 +850,7 @@ class projectDetail extends StatelessWidget {
                               child: Column(
                                 children: <Widget>[
                                   Text(
-                                    project.rcBug.toString(),
+                                    project.bugs.fixedBugSW.length.toString(),
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize:
@@ -880,7 +882,7 @@ class projectDetail extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) =>
-                                        hataDetail(project, 3),
+                                        hataDetail(project, 5),
                                   ));
                             },
                             child: Padding(
@@ -888,7 +890,7 @@ class projectDetail extends StatelessWidget {
                               child: Column(
                                 children: <Widget>[
                                   Text(
-                                    project.rcBug.toString(),
+                                    project.bugs.rcBugSW.length.toString(),
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize:
@@ -1277,6 +1279,30 @@ class _hataDetailState extends State<hataDetail>
                   ),
                   Card(
                     child: ListView.separated(
+                      itemCount: project.bugs.fixedBugHW.length,
+                      separatorBuilder: (context, index) =>
+                          Divider(height: 1.0, color: Colors.grey),
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          title: Text(project.bugs.fixedBugHW[index].bugName),
+                        );
+                      },
+                    ),
+                  ),
+                  Card(
+                    child: ListView.separated(
+                      itemCount: project.bugs.rcBugHW.length,
+                      separatorBuilder: (context, index) =>
+                          Divider(height: 1.0, color: Colors.grey),
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          title: Text(project.bugs.rcBugHW[index].bugName),
+                        );
+                      },
+                    ),
+                  ),
+                  Card(
+                    child: ListView.separated(
                       itemCount: project.bugs.sWBug.length,
                       separatorBuilder: (context, index) =>
                           Divider(height: 1.0, color: Colors.grey),
@@ -1289,48 +1315,24 @@ class _hataDetailState extends State<hataDetail>
                   ),
                   Card(
                     child: ListView.separated(
-                      itemCount: project.bugs.fixedBug.length,
+                      itemCount: project.bugs.fixedBugSW.length,
                       separatorBuilder: (context, index) =>
                           Divider(height: 1.0, color: Colors.grey),
                       itemBuilder: (context, index) {
                         return ListTile(
-                          title: Text(project.bugs.fixedBug[index].bugName),
+                          title: Text(project.bugs.fixedBugSW[index].bugName),
                         );
                       },
                     ),
                   ),
                   Card(
                     child: ListView.separated(
-                      itemCount: project.bugs.rcBug.length,
+                      itemCount: project.bugs.rcBugSW.length,
                       separatorBuilder: (context, index) =>
                           Divider(height: 1.0, color: Colors.grey),
                       itemBuilder: (context, index) {
                         return ListTile(
-                          title: Text(project.bugs.rcBug[index].bugName),
-                        );
-                      },
-                    ),
-                  ),
-                  Card(
-                    child: ListView.separated(
-                      itemCount: project.bugs.rcBug.length,
-                      separatorBuilder: (context, index) =>
-                          Divider(height: 1.0, color: Colors.grey),
-                      itemBuilder: (context, index) {
-                        return ListTile(
-                          title: Text(project.bugs.rcBug[index].bugName),
-                        );
-                      },
-                    ),
-                  ),
-                  Card(
-                    child: ListView.separated(
-                      itemCount: project.bugs.rcBug.length,
-                      separatorBuilder: (context, index) =>
-                          Divider(height: 1.0, color: Colors.grey),
-                      itemBuilder: (context, index) {
-                        return ListTile(
-                          title: Text(project.bugs.rcBug[index].bugName),
+                          title: Text(project.bugs.rcBugSW[index].bugName),
                         );
                       },
                     ),
