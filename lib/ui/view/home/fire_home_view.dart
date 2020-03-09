@@ -424,17 +424,18 @@ class projectDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int len;
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
         centerTitle: true,
         title: Text("Proje Detayları"),
         /*actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () async {},
-          ),
-        ],*/
+              IconButton(
+                icon: Icon(Icons.search),
+                onPressed: () async {},
+              ),
+            ],*/
       ),
       resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
@@ -550,8 +551,8 @@ class projectDetail extends StatelessWidget {
                 ],
               ),
               /* SizedBox(
-              height: 10,
-            ), */
+                  height: 10,
+                ), */
 
               Padding(
                 padding: const EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 0.0),
@@ -592,7 +593,7 @@ class projectDetail extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(35.0, 20.0, 0.0, 0.0),
                     child: Text(
-                      "HardWare",
+                      "Hardware",
                       style: TextStyle(
                         fontSize: 21,
                         fontWeight: FontWeight.bold,
@@ -644,16 +645,17 @@ class projectDetail extends StatelessWidget {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
-                                  if(project.bugs!=null && project.hWBug!=null && project.bugs.hWBug.length!=null)
+                                  
                                     Text(
-                                        project.bugs.hWBug.length.toString(),
+                                      project.hWBug.toString(),
                                       style: TextStyle(
                                           color: Colors.white,
-                                          fontSize:
-                                              MediaQuery.of(context).size.height *
-                                                  0.05),
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.05),
                                     ),
-                          
+                                    
                                   Text(
                                     'OPEN',
                                     style: TextStyle(
@@ -687,23 +689,25 @@ class projectDetail extends StatelessWidget {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
-                                  if(project.bugs!=null && project.bugs.fixedBugHW!=null && project.bugs.fixedBugHW.length!=null)
+                                  
                                     Text(
-                                      project.bugs.fixedBugHW.length.toString(),
+                                      project.fixedBugHW.toString(),
                                       style: TextStyle(
                                           color: Colors.white,
-                                          fontSize:
-                                              MediaQuery.of(context).size.height *
-                                                  0.05),
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.05),
                                     ),
-                                    Text(
-                                      'FIXED',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize:
-                                              MediaQuery.of(context).size.height *
-                                                  0.02),
-                                    ),
+                                    
+                                  Text(
+                                    'FIXED',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize:
+                                            MediaQuery.of(context).size.height *
+                                                0.02),
+                                  ),
                                 ],
                               ),
                             ),
@@ -729,16 +733,17 @@ class projectDetail extends StatelessWidget {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
-                                  if(project.bugs!=null && project.bugs.rcBugHW!=null && project.bugs.rcBugHW.length!=null)
-                                  
-                                  Text(
-                                    project.bugs.rcBugHW.length.toString(),
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize:
-                                            MediaQuery.of(context).size.height *
-                                                0.05),
-                                  ),
+                                 
+                                    Text(
+                                      project.rcBugHW.toString(),
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.05),
+                                    ),
+                                   
                                   Text(
                                     'RC',
                                     style: TextStyle(
@@ -763,7 +768,7 @@ class projectDetail extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(35.0, 10.0, 0.0, 0.0),
                     child: Text(
-                      "SoftWare",
+                      "Software",
                       style: TextStyle(
                         fontSize: 21,
                         fontWeight: FontWeight.bold,
@@ -814,16 +819,16 @@ class projectDetail extends StatelessWidget {
                               padding: const EdgeInsets.all(8.0),
                               child: Column(
                                 children: <Widget>[
-                                  if(project.bugs!=null && project.bugs.sWBug!=null && project.bugs.sWBug.length!=null)
-                                  
-                                  Text(
-                                    project.bugs.sWBug.length.toString(),
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize:
-                                            MediaQuery.of(context).size.height *
-                                                0.05),
-                                  ),
+                                    Text(
+                                      project.sWBug.toString(),
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.05),
+                                    ),
+                                    
                                   Text(
                                     'OPEN',
                                     style: TextStyle(
@@ -856,16 +861,17 @@ class projectDetail extends StatelessWidget {
                               padding: const EdgeInsets.all(8.0),
                               child: Column(
                                 children: <Widget>[
-                                  if(project.bugs!=null && project.bugs.fixedBugSW!=null && project.bugs.fixedBugSW.length!=null)
-                                  
-                                  Text(
-                                    project.bugs.fixedBugSW.length.toString(),
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize:
-                                            MediaQuery.of(context).size.height *
-                                                0.05),
-                                  ),
+                                 
+                                    Text(
+                                      project.fixedBug.toString(),
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.05),
+                                    ),
+                                     
                                   Text(
                                     'FIXED',
                                     style: TextStyle(
@@ -898,16 +904,17 @@ class projectDetail extends StatelessWidget {
                               padding: const EdgeInsets.all(8.0),
                               child: Column(
                                 children: <Widget>[
-                                   if(project.bugs!=null && project.bugs.rcBugSW!=null && project.bugs.rcBugSW.length!=null)
-                                 
-                                  Text(
-                                    project.bugs.rcBugSW.length.toString(),
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize:
-                                            MediaQuery.of(context).size.height *
-                                                0.05),
-                                  ),
+                                  
+                                    Text(
+                                      project.rcBug.toString(),
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.05),
+                                    ),
+                                   
                                   Text(
                                     'RC',
                                     style: TextStyle(
@@ -941,7 +948,7 @@ class projectDetail extends StatelessWidget {
     );
   }
 
-showAlertDialog(BuildContext context) {
+  showAlertDialog(BuildContext context) {
     // set up the button
     Widget okButton = FlatButton(
       child: Text("Tamam"),
@@ -1278,7 +1285,9 @@ class _hataDetailState extends State<hataDetail>
                   Card(
                     child: ListView.separated(
                       shrinkWrap: true,
-                      itemCount:project.bugs.hWBug!=null ? project.bugs.hWBug.length :0 ,
+                      itemCount: project.bugs.hWBug != null
+                          ? project.hWBug
+                          : 0,
                       separatorBuilder: (context, index) =>
                           Divider(height: 1.0, color: Colors.grey),
                       itemBuilder: (context, index) {
@@ -1290,7 +1299,9 @@ class _hataDetailState extends State<hataDetail>
                   ),
                   Card(
                     child: ListView.separated(
-                      itemCount:project.bugs.fixedBugHW!=null ? project.bugs.fixedBugHW.length :0,
+                      itemCount: project.bugs.fixedBugHW != null
+                          ? project.fixedBugHW // HW olcak
+                          : 0,
                       separatorBuilder: (context, index) =>
                           Divider(height: 1.0, color: Colors.grey),
                       itemBuilder: (context, index) {
@@ -1302,7 +1313,9 @@ class _hataDetailState extends State<hataDetail>
                   ),
                   Card(
                     child: ListView.separated(
-                      itemCount:project.bugs.rcBugHW!=null ? project.bugs.rcBugHW.length :0, 
+                      itemCount: project.bugs.rcBugHW != null
+                          ? project.rcBugHW // HW olcak
+                          : 0,
                       separatorBuilder: (context, index) =>
                           Divider(height: 1.0, color: Colors.grey),
                       itemBuilder: (context, index) {
@@ -1314,7 +1327,9 @@ class _hataDetailState extends State<hataDetail>
                   ),
                   Card(
                     child: ListView.separated(
-                      itemCount:project.bugs.sWBug!=null ? project.bugs.sWBug.length :0, 
+                      itemCount: project.bugs.sWBug != null
+                          ? project.sWBug
+                          : 0,
                       separatorBuilder: (context, index) =>
                           Divider(height: 1.0, color: Colors.grey),
                       itemBuilder: (context, index) {
@@ -1326,7 +1341,9 @@ class _hataDetailState extends State<hataDetail>
                   ),
                   Card(
                     child: ListView.separated(
-                      itemCount:project.bugs.fixedBugSW!=null ? project.bugs.fixedBugSW.length :0, 
+                      itemCount: project.bugs.fixedBugSW != null
+                          ? project.fixedBug //  sw
+                          : 0,
                       separatorBuilder: (context, index) =>
                           Divider(height: 1.0, color: Colors.grey),
                       itemBuilder: (context, index) {
@@ -1338,7 +1355,9 @@ class _hataDetailState extends State<hataDetail>
                   ),
                   Card(
                     child: ListView.separated(
-                      itemCount:project.bugs.rcBugSW!=null ? project.bugs.rcBugSW.length :0, 
+                      itemCount: project.bugs.rcBugSW != null
+                          ? project.rcBug
+                          : 0,
                       separatorBuilder: (context, index) =>
                           Divider(height: 1.0, color: Colors.grey),
                       itemBuilder: (context, index) {

@@ -1,7 +1,9 @@
 class Projects {
   Bugs bugs;
   int fixedBug;
+  int fixedBugHW;
   int rcBug;
+  int rcBugHW;
   int hWBug;
   String projectName;
   int sWBug;
@@ -17,7 +19,9 @@ class Projects {
 
   Projects(
       {this.fixedBug,
+      this.fixedBugHW,
       this.rcBug,
+      this.rcBugHW,
       this.yorum,
       this.hWBug,
       this.projectName,
@@ -32,17 +36,47 @@ class Projects {
 
   Projects.fromJson(Map<String, dynamic> json) {
     bugs = json['Bugs'] != null ? new Bugs.fromJson(json['Bugs']) : new Bugs();
+    if(bugs==null)
+    {
+
+    }
     key = json['key'];
-    fixedBug = int.parse(json['FixedBug']);
+    if (json.containsKey('FixedBug')) {
+      fixedBug = int.parse(json['FixedBug']);
+    } else {
+      fixedBug = 0;
+    }
+
+    if (json.containsKey('FixedBugHW')) {
+      fixedBugHW = int.parse(json['FixedBugHW']);
+    } else {
+      fixedBugHW = 0;
+    }
+
     if (json.containsKey('RCBugCount')) {
       rcBug = int.parse(json['RCBugCount']);
     } else {
       rcBug = 0;
     }
+    
+    if (json.containsKey('RCBugCountHW')) {
+      rcBugHW = int.parse(json['RCBugCountHW']);
+    } else {
+      rcBugHW = 0;
+    }
     //rcBug = int.parse(json.containsKey('RCBugCount') == false ? json['RCBugCount'] : 0);
-    hWBug = int.parse(json['HWBug']);
+   
+   if (json.containsKey('HWBug')) {
+      hWBug = int.parse(json['HWBug']);
+    } else {
+      hWBug = 0;
+    }
+      if (json.containsKey('SWBug')) {
+      sWBug = int.parse(json['SWBug']);
+    } else {
+      sWBug = 0;
+    }
     projectName = json['ProjectName'];
-    sWBug = int.parse(json['SWBug']);
     totalBug = int.parse(json['TotalBug']);
     source = json['Source'];
     productType = json['ProductType'];
@@ -66,6 +100,8 @@ class Projects {
     data['key'] = this.key;
     data['FixedBug'] = this.fixedBug;
     data['RCBugCount'] = this.rcBug;
+    data['FixedBugHW'] = this.fixedBugHW;
+    data['RCBugCountHW'] = this.rcBugHW;
     data['HWBug'] = this.hWBug;
     data['ProjectName'] = this.projectName;
     data['SWBug'] = this.sWBug;
