@@ -31,7 +31,7 @@ class Projects {
       this.week});
 
   Projects.fromJson(Map<String, dynamic> json) {
-    bugs = json['Bugs'] != null ? new Bugs.fromJson(json['Bugs']) : null;
+    bugs = json['Bugs'] != null ? new Bugs.fromJson(json['Bugs']) : new Bugs();
     key = json['key'];
     fixedBug = int.parse(json['FixedBug']);
     if (json.containsKey('RCBugCount')) {
@@ -102,6 +102,7 @@ class Bugs {
       });
     } else {
       hWBug = new List<HWBug>();
+      
     }
     if (json['SWBug'] != null) {
       sWBug = new List<SWBug>();
@@ -125,7 +126,7 @@ class Bugs {
         fixedBugSW.add(new FixedBug.fromJson(v));
       });
     } else {
-      fixedBugHW = new List<FixedBug>();
+      fixedBugSW = new List<FixedBug>();
     }
     if (json['RCBugHW'] != null) {
       rcBugHW = new List<RCBug>();

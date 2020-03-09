@@ -644,14 +644,16 @@ class projectDetail extends StatelessWidget {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
-                                  Text(
-                                    project.bugs.hWBug.length.toString(),
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize:
-                                            MediaQuery.of(context).size.height *
-                                                0.05),
-                                  ),
+                                  if(project.bugs!=null && project.hWBug!=null && project.bugs.hWBug.length!=null)
+                                    Text(
+                                        project.bugs.hWBug.length.toString(),
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize:
+                                              MediaQuery.of(context).size.height *
+                                                  0.05),
+                                    ),
+                          
                                   Text(
                                     'OPEN',
                                     style: TextStyle(
@@ -685,22 +687,23 @@ class projectDetail extends StatelessWidget {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
-                                  Text(
-                                    project.bugs.fixedBugHW.length.toString(),
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize:
-                                            MediaQuery.of(context).size.height *
-                                                0.05),
-                                  ),
-                                  Text(
-                                    'FIXED',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize:
-                                            MediaQuery.of(context).size.height *
-                                                0.02),
-                                  ),
+                                  if(project.bugs!=null && project.bugs.fixedBugHW!=null && project.bugs.fixedBugHW.length!=null)
+                                    Text(
+                                      project.bugs.fixedBugHW.length.toString(),
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize:
+                                              MediaQuery.of(context).size.height *
+                                                  0.05),
+                                    ),
+                                    Text(
+                                      'FIXED',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize:
+                                              MediaQuery.of(context).size.height *
+                                                  0.02),
+                                    ),
                                 ],
                               ),
                             ),
@@ -726,6 +729,8 @@ class projectDetail extends StatelessWidget {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
+                                  if(project.bugs!=null && project.bugs.rcBugHW!=null && project.bugs.rcBugHW.length!=null)
+                                  
                                   Text(
                                     project.bugs.rcBugHW.length.toString(),
                                     style: TextStyle(
@@ -809,6 +814,8 @@ class projectDetail extends StatelessWidget {
                               padding: const EdgeInsets.all(8.0),
                               child: Column(
                                 children: <Widget>[
+                                  if(project.bugs!=null && project.bugs.sWBug!=null && project.bugs.sWBug.length!=null)
+                                  
                                   Text(
                                     project.bugs.sWBug.length.toString(),
                                     style: TextStyle(
@@ -849,6 +856,8 @@ class projectDetail extends StatelessWidget {
                               padding: const EdgeInsets.all(8.0),
                               child: Column(
                                 children: <Widget>[
+                                  if(project.bugs!=null && project.bugs.fixedBugSW!=null && project.bugs.fixedBugSW.length!=null)
+                                  
                                   Text(
                                     project.bugs.fixedBugSW.length.toString(),
                                     style: TextStyle(
@@ -889,6 +898,8 @@ class projectDetail extends StatelessWidget {
                               padding: const EdgeInsets.all(8.0),
                               child: Column(
                                 children: <Widget>[
+                                   if(project.bugs!=null && project.bugs.rcBugSW!=null && project.bugs.rcBugSW.length!=null)
+                                 
                                   Text(
                                     project.bugs.rcBugSW.length.toString(),
                                     style: TextStyle(
@@ -1267,7 +1278,7 @@ class _hataDetailState extends State<hataDetail>
                   Card(
                     child: ListView.separated(
                       shrinkWrap: true,
-                      itemCount: project.bugs.hWBug.length,
+                      itemCount:project.bugs.hWBug!=null ? project.bugs.hWBug.length :0 ,
                       separatorBuilder: (context, index) =>
                           Divider(height: 1.0, color: Colors.grey),
                       itemBuilder: (context, index) {
@@ -1279,7 +1290,7 @@ class _hataDetailState extends State<hataDetail>
                   ),
                   Card(
                     child: ListView.separated(
-                      itemCount: project.bugs.fixedBugHW.length,
+                      itemCount:project.bugs.fixedBugHW!=null ? project.bugs.fixedBugHW.length :0,
                       separatorBuilder: (context, index) =>
                           Divider(height: 1.0, color: Colors.grey),
                       itemBuilder: (context, index) {
@@ -1291,7 +1302,7 @@ class _hataDetailState extends State<hataDetail>
                   ),
                   Card(
                     child: ListView.separated(
-                      itemCount: project.bugs.rcBugHW.length,
+                      itemCount:project.bugs.rcBugHW!=null ? project.bugs.rcBugHW.length :0, 
                       separatorBuilder: (context, index) =>
                           Divider(height: 1.0, color: Colors.grey),
                       itemBuilder: (context, index) {
@@ -1303,7 +1314,7 @@ class _hataDetailState extends State<hataDetail>
                   ),
                   Card(
                     child: ListView.separated(
-                      itemCount: project.bugs.sWBug.length,
+                      itemCount:project.bugs.sWBug!=null ? project.bugs.sWBug.length :0, 
                       separatorBuilder: (context, index) =>
                           Divider(height: 1.0, color: Colors.grey),
                       itemBuilder: (context, index) {
@@ -1315,7 +1326,7 @@ class _hataDetailState extends State<hataDetail>
                   ),
                   Card(
                     child: ListView.separated(
-                      itemCount: project.bugs.fixedBugSW.length,
+                      itemCount:project.bugs.fixedBugSW!=null ? project.bugs.fixedBugSW.length :0, 
                       separatorBuilder: (context, index) =>
                           Divider(height: 1.0, color: Colors.grey),
                       itemBuilder: (context, index) {
@@ -1327,7 +1338,7 @@ class _hataDetailState extends State<hataDetail>
                   ),
                   Card(
                     child: ListView.separated(
-                      itemCount: project.bugs.rcBugSW.length,
+                      itemCount:project.bugs.rcBugSW!=null ? project.bugs.rcBugSW.length :0, 
                       separatorBuilder: (context, index) =>
                           Divider(height: 1.0, color: Colors.grey),
                       itemBuilder: (context, index) {
