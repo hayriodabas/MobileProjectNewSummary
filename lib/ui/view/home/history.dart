@@ -312,9 +312,9 @@ class _historyDetailsState extends State<historyDetails> {
             "   SW: " +
             project.sWBug.toString() +
             "   FixedBug:" +
-            project.fixedBug.toString() +
+            (project.fixedBug + project.fixedBugHW).toString() + 
             "   RCBug: " +
-            project.rcBug.toString()),
+            (project.rcBug + project.rcBugHW).toString()),
       ),
     );
   }
